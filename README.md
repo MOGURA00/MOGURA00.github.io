@@ -1,0 +1,1 @@
+# MOGURA00.github.io
