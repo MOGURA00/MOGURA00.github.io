@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>地政学クイズ：中東危機2026</title>
+<meta name="description" content="2026年中東危機を理解するための出典付き時事クイズゲーム。ホルムズ海峡・原油・人道危機・情報リテラシーを学ぶ。">
+<meta property="og:title" content="地政学クイズ：中東危機2026">
+<meta property="og:description" content="信頼できる報道機関・国際機関の情報に基づく時事クイズ。あなたの中東情勢理解度を試そう。">
+<meta property="og:type" content="website">
+
+<!-- ============================================================
+  広告設定ガイド
+  ============================================================
+
+  【STEP 1】Google AdSense パブリッシャーID を設定
+  下記の AD_CONFIG.publisherId を自分のIDに書き換えてください。
+  例: "ca-pub-1234567890123456"
+
+  【STEP 2】広告ユニットIDを設定
+  AdSense管理画面で広告ユニットを3つ作成し、それぞれのIDを設定。
+  - adSlotTop:     ヘッダーバナー（レスポンシブ推奨）
+  - adSlotInFeed:  5問ごとのインフィード広告（記事内広告推奨）
+  - adSlotResult:  結果画面のレクタングル（300x250推奨）
+
+  【STEP 3】GA4 測定IDを設定
+  GA4管理画面で取得した測定IDを AD_CONFIG.ga4Id に設定。
+  例: "G-XXXXXXXXXX"
+
+  【STEP 4】ads.txt をドメインルートに設置
+  google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+  ※ pub-ID は自分のパブリッシャーIDに置き換え
+
+  【STEP 5】プライバシーポリシーページを用意
+  AdSense審査にはプライバシーポリシーが必須です。
+  AD_CONFIG.privacyUrl にURLを設定してください。
+  ============================================================ -->
+
+<script>
+// ===== 広告・計測 設定 =====
+const AD_CONFIG = {
+  // --- Google AdSense ---
+  publisherId: "ca-pub-3759456656810260",    // mogura00.github.io 用
+  adSlotTop: "1234567890",                  // ← ヘッダー広告ユニットID
+  adSlotInFeed: "2345678901",               // ← インフィード広告ユニットID
+  adSlotResult: "3456789012",               // ← 結果画面広告ユニットID
+
+  // --- Google Analytics 4 ---
+  ga4Id: "G-XXXXXXXXXX",                    // ← GA4 測定ID
+
+  // --- 設定 ---
+  inFeedInterval: 5,                        // 何問ごとにインフィード広告を表示するか
+  enableTestMode: true,                     // true=テストモード（ダミー広告表示）, 本番でfalseに
+  privacyUrl: "#privacy",                   // プライバシーポリシーURL
+  consentCookieName: "gq_consent",          // クッキー同意の保存キー
+};
+</script>
+
+<!-- Google AdSense 読み込み（publisherIdを設定後に有効化） -->
+<script>
+if (AD_CONFIG.publisherId !== "ca-pub-XXXXXXXXXXXXXXXX") {
+  const s = document.createElement('script');
+  s.async = true;
+  s.crossOrigin = "anonymous";
+  s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CONFIG.publisherId}`;
+  document.head.appendChild(s);
+}
+</script>
+
+<!-- Google Analytics 4 読み込み（ga4Idを設定後に有効化） -->
+<script>
+if (AD_CONFIG.ga4Id !== "G-XXXXXXXXXX") {
+  const g = document.createElement('script');
+  g.async = true;
+  g.src = `https://www.googletagmanager.com/gtag/js?id=${AD_CONFIG.ga4Id}`;
+  document.head.appendChild(g);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', AD_CONFIG.ga4Id);
+} else {
+  // テストモード: gtag をダミー化
+  window.gtag = function(){};
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0f1419;--card:#1a2332;--card2:#1e2a3a;--accent:#3b82f6;--accent2:#60a5fa;
+  --green:#22c55e;--red:#ef4444;--orange:#f59e0b;--text:#e2e8f0;--text2:#94a3b8;
+  --border:#2d3f56;--gold:#fbbf24;
+}
+body{font-family:'Segoe UI','Hiragino Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+.container{max-width:720px;margin:0 auto;padding:16px}
+
+/* ===== AD SLOTS ===== */
+.ad-container{margin:12px 0;min-height:50px}
+.ad-container.hidden{display:none}
+
+/* テストモード広告プレビュー */
+.ad-test{background:var(--card2);border:2px dashed var(--border);border-radius:8px;text-align:center;color:var(--text2);font-size:12px;position:relative;overflow:hidden}
+.ad-test::before{content:"AD";position:absolute;top:4px;left:8px;font-size:10px;font-weight:700;color:var(--orange);background:rgba(245,158,11,.15);padding:1px 6px;border-radius:3px}
+.ad-test-top{padding:28px 20px 20px;min-height:90px}
+.ad-test-infeed{padding:28px 20px 16px;min-height:100px}
+.ad-test-result{padding:28px 20px 20px;min-height:250px}
+.ad-test .ad-label{font-weight:600;color:var(--text2);margin-bottom:4px}
+.ad-test .ad-size{font-size:11px;color:var(--border)}
+.ad-test .ad-note{font-size:10px;color:var(--orange);margin-top:6px}
+
+/* AdSense 実広告ラッパー */
+.ad-live{text-align:center}
+.ad-live ins{display:block}
+
+/* ===== COOKIE CONSENT ===== */
+.consent-banner{position:fixed;bottom:0;left:0;right:0;background:#111820;border-top:1px solid var(--border);padding:14px 20px;z-index:200;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--text2);animation:slideUp .3s ease}
+.consent-banner.hidden{display:none}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.consent-text{max-width:500px;line-height:1.5}
+.consent-text a{color:var(--accent2);text-decoration:underline}
+.consent-btns{display:flex;gap:8px}
+.consent-btn{padding:8px 18px;border-radius:6px;border:none;cursor:pointer;font-size:.82rem;font-weight:600;transition:all .15s}
+.consent-accept{background:var(--accent);color:#fff}
+.consent-accept:hover{background:#2563eb}
+.consent-decline{background:transparent;color:var(--text2);border:1px solid var(--border)}
+.consent-decline:hover{border-color:var(--accent);color:var(--accent2)}
+
+/* ===== HEADER ===== */
+.header{text-align:center;padding:24px 0 12px}
+.header h1{font-size:1.5rem;font-weight:700;color:var(--accent2);letter-spacing:.5px}
+.header .subtitle{font-size:.85rem;color:var(--text2);margin-top:4px}
+.disclaimer{font-size:.72rem;color:var(--text2);text-align:center;padding:8px 16px;background:var(--card);border-radius:6px;margin:8px 0 16px;border-left:3px solid var(--orange)}
+
+/* ===== TITLE SCREEN ===== */
+#title-screen{text-align:center;padding:40px 0}
+#title-screen h2{font-size:2rem;color:var(--accent2);margin-bottom:8px}
+#title-screen .tagline{color:var(--text2);font-size:1rem;margin-bottom:32px}
+.mode-select{display:flex;flex-direction:column;gap:12px;margin:24px 0}
+.mode-btn{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;text-align:left;transition:all .2s;color:var(--text)}
+.mode-btn:hover{border-color:var(--accent);background:var(--card2);transform:translateY(-1px)}
+.mode-btn .mode-title{font-size:1rem;font-weight:600;color:var(--accent2)}
+.mode-btn .mode-desc{font-size:.82rem;color:var(--text2);margin-top:4px}
+.mode-btn .mode-icon{font-size:1.4rem;float:left;margin-right:12px;margin-top:2px}
+
+/* ===== PROGRESS ===== */
+.progress-bar{background:var(--card);border-radius:20px;height:8px;margin:16px 0 8px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:20px;transition:width .4s ease}
+.status-row{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--text2);margin-bottom:16px}
+.score-display{font-weight:600;color:var(--gold)}
+.category-tag{display:inline-block;font-size:.72rem;padding:3px 10px;border-radius:12px;font-weight:600;margin-bottom:12px}
+.cat-news{background:#1e3a5f;color:#60a5fa}
+.cat-economy{background:#3a2e1e;color:#f59e0b}
+.cat-literacy{background:#1e3a2e;color:#34d399}
+
+/* ===== QUESTION ===== */
+#quiz-screen{display:none}
+.question-card{background:var(--card);border-radius:12px;padding:24px;margin-bottom:16px}
+.question-text{font-size:1.05rem;font-weight:500;line-height:1.7;margin-bottom:20px}
+.choices{display:flex;flex-direction:column;gap:10px}
+.choice-btn{background:var(--card2);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;cursor:pointer;text-align:left;font-size:.95rem;color:var(--text);transition:all .15s;display:flex;align-items:flex-start;gap:12px}
+.choice-btn:hover:not(.disabled){border-color:var(--accent);background:#1a2d45}
+.choice-btn.correct{border-color:var(--green);background:#0f2918;color:var(--green)}
+.choice-btn.wrong{border-color:var(--red);background:#2a0f0f;color:var(--red)}
+.choice-btn.disabled{cursor:default;opacity:.7}
+.choice-btn.show-correct{border-color:var(--green);opacity:1;background:#0f2918}
+.choice-label{font-weight:700;min-width:24px;color:var(--accent2)}
+
+/* ===== EXPLANATION ===== */
+.explanation{display:none;margin-top:16px}
+.explanation.show{display:block}
+.exp-box{background:var(--card);border-radius:10px;padding:20px;border-left:3px solid var(--accent)}
+.exp-title{font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--accent2)}
+.exp-text{font-size:.88rem;color:var(--text);line-height:1.7;margin-bottom:16px}
+
+/* ===== SOURCE CARDS ===== */
+.sources-title{font-size:.78rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.source-card{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:8px;font-size:.82rem}
+.source-card .src-pub{font-weight:700;color:var(--accent2)}
+.source-card .src-type{font-size:.7rem;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:600}
+.src-type-press{background:#1e3a5f;color:#60a5fa}
+.src-type-org{background:#2a1e3a;color:#a78bfa}
+.src-type-gov{background:#1e3a2e;color:#34d399}
+.source-card .src-title{color:var(--text);margin-top:4px;line-height:1.4}
+.source-card .src-date{color:var(--text2);font-size:.75rem;margin-top:2px}
+.source-card a{color:var(--accent2);text-decoration:none}
+.source-card a:hover{text-decoration:underline}
+
+.next-btn{display:none;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px 32px;font-size:1rem;font-weight:600;cursor:pointer;width:100%;margin-top:16px;transition:background .2s}
+.next-btn:hover{background:#2563eb}
+.next-btn.show{display:block}
+
+/* ===== RESULT SCREEN ===== */
+#result-screen{display:none;text-align:center;padding:32px 0}
+.result-card{background:var(--card);border-radius:16px;padding:32px 24px}
+.result-score{font-size:3rem;font-weight:800;color:var(--gold)}
+.result-label{font-size:1rem;color:var(--text2);margin:4px 0 16px}
+.result-rank{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.result-message{font-size:.9rem;color:var(--text2);margin-bottom:24px;line-height:1.6}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0}
+.stat-box{background:var(--card2);border-radius:10px;padding:14px 8px}
+.stat-val{font-size:1.4rem;font-weight:700}
+.stat-label{font-size:.72rem;color:var(--text2);margin-top:2px}
+
+/* SHARE */
+.share-section{margin:20px 0 8px}
+.share-title{font-size:.78rem;color:var(--text2);margin-bottom:10px}
+.share-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.share-btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-size:.82rem;font-weight:600;transition:all .15s;color:#fff}
+.share-btn:hover{opacity:.85;transform:translateY(-1px)}
+.share-x{background:#000}
+.share-line{background:#06c755}
+.share-copy{background:var(--card2);color:var(--text2);border:1px solid var(--border)}
+.share-copy:hover{border-color:var(--accent);color:var(--accent2)}
+
+.retry-btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px 40px;font-size:1rem;font-weight:600;cursor:pointer;margin-top:20px;transition:background .2s}
+.retry-btn:hover{background:#2563eb}
+.back-btn{background:transparent;color:var(--text2);border:1px solid var(--border);border-radius:10px;padding:12px 32px;font-size:.9rem;cursor:pointer;margin-top:10px;transition:all .2s}
+.back-btn:hover{border-color:var(--accent);color:var(--accent2)}
+
+/* ===== COMBO ===== */
+.combo-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:2rem;font-weight:800;color:var(--gold);pointer-events:none;z-index:100;text-shadow:0 2px 20px rgba(251,191,36,.5);transition:all .3s}
+.combo-popup.show{transform:translate(-50%,-50%) scale(1);animation:comboPop .6s ease forwards}
+@keyframes comboPop{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-80%) scale(1.3)}}
+
+/* ===== FOOTER ===== */
+.footer{text-align:center;padding:24px 0;font-size:.72rem;color:var(--text2)}
+.footer a{color:var(--accent2);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+
+@media(max-width:500px){
+  .container{padding:10px}
+  .question-text{font-size:.95rem}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .consent-banner{flex-direction:column;text-align:center;padding:12px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== クッキー同意バナー ===== -->
+<div class="consent-banner" id="consent-banner">
+  <div class="consent-text">
+    本サイトではGoogle AdSense広告とGoogle Analyticsを使用しています。
+    これらのサービスはCookieを使用してパーソナライズされた広告の配信やアクセス解析を行います。
+    <a id="privacy-link" href="#privacy" target="_blank">プライバシーポリシー</a>
+  </div>
+  <div class="consent-btns">
+    <button class="consent-btn consent-accept" onclick="handleConsent(true)">同意する</button>
+    <button class="consent-btn consent-decline" onclick="handleConsent(false)">必要最小限のみ</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ===== 広告: ヘッダーバナー ===== -->
+  <div class="ad-container" id="ad-top-container"></div>
+
+  <div class="header">
+    <h1>地政学クイズ：中東危機2026</h1>
+    <p class="subtitle">信頼できる報道・国際機関の情報に基づく時事クイズ</p>
+  </div>
+
+  <div class="disclaimer">本クイズは2026年3月時点の報道ベースで作成されています。現行の紛争に関する内容を含みます。情報は随時更新される可能性があります。</div>
+
+  <!-- ===== TITLE SCREEN ===== -->
+  <div id="title-screen">
+    <h2>中東危機を読み解く</h2>
+    <p class="tagline">ホルムズ海峡・原油・人道危機・情報リテラシー</p>
+    <p style="font-size:.85rem;color:var(--text2);margin-bottom:8px">モードを選択してください</p>
+    <div class="mode-select">
+      <div class="mode-btn" onclick="startGame('all')">
+        <span class="mode-icon">📰</span>
+        <div class="mode-title">総合モード（20問）</div>
+        <div class="mode-desc">戦況理解・経済影響・情報リテラシーの全ジャンルから出題</div>
+      </div>
+      <div class="mode-btn" onclick="startGame('news')">
+        <span class="mode-icon">🔍</span>
+        <div class="mode-title">ニュース理解モード</div>
+        <div class="mode-desc">紛争の経緯・参加国・外交を中心に出題</div>
+      </div>
+      <div class="mode-btn" onclick="startGame('economy')">
+        <span class="mode-icon">📊</span>
+        <div class="mode-title">経済影響モード</div>
+        <div class="mode-desc">原油価格・海運・保険・物流コストを中心に出題</div>
+      </div>
+      <div class="mode-btn" onclick="startGame('literacy')">
+        <span class="mode-icon">🛡️</span>
+        <div class="mode-title">情報リテラシーモード</div>
+        <div class="mode-desc">誤情報の判別・メディアリテラシーを中心に出題</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== QUIZ SCREEN ===== -->
+  <div id="quiz-screen">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="status-row">
+      <span id="q-counter">第1問 / 20問</span>
+      <span class="score-display" id="score-display">スコア: 0</span>
+    </div>
+
+    <!-- 広告: インフィード（5問ごとに表示） -->
+    <div class="ad-container hidden" id="ad-infeed-container"></div>
+
+    <div class="question-card">
+      <span class="category-tag" id="cat-tag"></span>
+      <div class="question-text" id="question-text"></div>
+      <div class="choices" id="choices"></div>
+    </div>
+
+    <div class="explanation" id="explanation">
+      <div class="exp-box">
+        <div class="exp-title">📖 解説</div>
+        <div class="exp-text" id="exp-text"></div>
+        <div class="sources-title">📌 出典・根拠</div>
+        <div id="sources-list"></div>
+      </div>
+    </div>
+
+    <button class="next-btn" id="next-btn" onclick="nextQuestion()">次の問題へ →</button>
+  </div>
+
+  <!-- ===== RESULT SCREEN ===== -->
+  <div id="result-screen">
+    <div class="result-card">
+      <div class="result-score" id="final-score">0</div>
+      <div class="result-label">ポイント</div>
+      <div class="result-rank" id="result-rank"></div>
+      <div class="result-message" id="result-message"></div>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="stat-val" id="stat-correct" style="color:var(--green)">0</div><div class="stat-label">正答数</div></div>
+        <div class="stat-box"><div class="stat-val" id="stat-combo" style="color:var(--gold)">0</div><div class="stat-label">最大コンボ</div></div>
+        <div class="stat-box"><div class="stat-val" id="stat-time" style="color:var(--accent2)">0s</div><div class="stat-label">平均回答時間</div></div>
+      </div>
+
+      <!-- SNSシェアボタン -->
+      <div class="share-section">
+        <div class="share-title">結果をシェア</div>
+        <div class="share-btns">
+          <button class="share-btn share-x" onclick="shareToX()">X (Twitter)</button>
+          <button class="share-btn share-line" onclick="shareToLine()">LINE</button>
+          <button class="share-btn share-copy" onclick="copyShareText()">テキストをコピー</button>
+        </div>
+      </div>
+
+      <button class="retry-btn" onclick="showResult(false);startGame(currentMode)">もう一度プレイ</button><br>
+      <button class="back-btn" onclick="backToTitle()">モード選択に戻る</button>
+    </div>
+
+    <!-- 広告: 結果画面レクタングル -->
+    <div class="ad-container" id="ad-result-container" style="margin-top:20px"></div>
+  </div>
+
+  <div class="footer">
+    出典: Reuters / AP / UN OCHA / WFP / Al Jazeera / BBC ほか<br>
+    本サイトは教育目的の時事クイズです。特定の政治的立場を支持するものではありません。<br>
+    <a id="footer-privacy" href="#privacy">プライバシーポリシー</a> ｜ <a href="mailto:ut.mole.mogura@gmail.com">お問い合わせ</a>
+  </div>
+</div>
+
+<div class="combo-popup" id="combo-popup"></div>
+
+<script>
+// ============================================================
+//  広告マネージャー
+// ============================================================
+const AdManager = {
+  consentGiven: false,
+  initialized: false,
+
+  init() {
+    // プライバシーポリシーURL設定
+    document.getElementById('privacy-link').href = AD_CONFIG.privacyUrl;
+    document.getElementById('footer-privacy').href = AD_CONFIG.privacyUrl;
+
+    // 同意状態チェック
+    const stored = this.getCookie(AD_CONFIG.consentCookieName);
+    if (stored === 'accepted') {
+      this.consentGiven = true;
+      this.hideBanner();
+      this.loadAds();
+    } else if (stored === 'declined') {
+      this.consentGiven = false;
+      this.hideBanner();
+      this.loadAds(); // 非パーソナライズ広告でも表示
+    }
+    // stored が null なら バナーを表示（デフォルト表示）
+  },
+
+  hideBanner() {
+    document.getElementById('consent-banner').classList.add('hidden');
+  },
+
+  setCookie(name, val, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${val};expires=${d.toUTCString()};path=/;SameSite=Lax`;
+  },
+
+  getCookie(name) {
+    const v = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return v ? v.pop() : null;
+  },
+
+  loadAds() {
+    if (this.initialized) return;
+    this.initialized = true;
+
+    const isTest = AD_CONFIG.enableTestMode || AD_CONFIG.publisherId === "ca-pub-XXXXXXXXXXXXXXXX";
+
+    // ヘッダーバナー
+    this.renderAd('ad-top-container', AD_CONFIG.adSlotTop, 'top', isTest);
+    // 結果画面レクタングル
+    this.renderAd('ad-result-container', AD_CONFIG.adSlotResult, 'result', isTest);
+  },
+
+  renderAd(containerId, slotId, type, isTest) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    if (isTest) {
+      // テストモード: ダミー広告を表示
+      const sizeMap = {
+        top: { label: 'ヘッダーバナー', size: '728×90 / レスポンシブ', cls: 'ad-test-top' },
+        infeed: { label: 'インフィード広告', size: '記事内ネイティブ', cls: 'ad-test-infeed' },
+        result: { label: '結果画面レクタングル', size: '300×250 / レスポンシブ', cls: 'ad-test-result' },
+      };
+      const info = sizeMap[type] || sizeMap.top;
+      container.innerHTML = `
+        <div class="ad-test ${info.cls}">
+          <div class="ad-label">${info.label}</div>
+          <div class="ad-size">${info.size} ｜ スロットID: ${slotId}</div>
+          <div class="ad-note">テストモード — 本番では AD_CONFIG.enableTestMode = false に設定</div>
+        </div>`;
+    } else {
+      // 本番: AdSense 広告ユニット挿入
+      const npa = this.consentGiven ? '' : ' data-ad-npa="1"'; // 非パーソナライズ
+      container.innerHTML = `
+        <div class="ad-live">
+          <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="${AD_CONFIG.publisherId}"
+            data-ad-slot="${slotId}"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+            ${npa}></ins>
+        </div>`;
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+    }
+  },
+
+  // インフィード広告を表示（5問ごと）
+  showInFeedAd() {
+    const container = document.getElementById('ad-infeed-container');
+    const isTest = AD_CONFIG.enableTestMode || AD_CONFIG.publisherId === "ca-pub-XXXXXXXXXXXXXXXX";
+    container.classList.remove('hidden');
+    this.renderAd('ad-infeed-container', AD_CONFIG.adSlotInFeed, 'infeed', isTest);
+  },
+
+  hideInFeedAd() {
+    const container = document.getElementById('ad-infeed-container');
+    container.classList.add('hidden');
+    container.innerHTML = '';
+  },
+
+  // 結果画面の広告をリフレッシュ
+  refreshResultAd() {
+    const isTest = AD_CONFIG.enableTestMode || AD_CONFIG.publisherId === "ca-pub-XXXXXXXXXXXXXXXX";
+    this.renderAd('ad-result-container', AD_CONFIG.adSlotResult, 'result', isTest);
+  }
+};
+
+// クッキー同意ハンドラ
+function handleConsent(accepted) {
+  AdManager.consentGiven = accepted;
+  AdManager.setCookie(AD_CONFIG.consentCookieName, accepted ? 'accepted' : 'declined', 365);
+  AdManager.hideBanner();
+  AdManager.loadAds();
+
+  // GA4に同意状態を送信
+  if (accepted) {
+    gtag('consent', 'update', { ad_storage: 'granted', analytics_storage: 'granted' });
+  } else {
+    gtag('consent', 'update', { ad_storage: 'denied', analytics_storage: 'granted' });
+  }
+
+  // GA4イベント
+  gtag('event', 'cookie_consent', { consent_type: accepted ? 'full' : 'minimal' });
+}
+
+// ============================================================
+//  GA4 イベントトラッキング
+// ============================================================
+const Analytics = {
+  gameStart(mode) {
+    gtag('event', 'game_start', {
+      event_category: 'quiz',
+      game_mode: mode,
+    });
+  },
+  questionAnswer(qId, isCorrect, timeSeconds, combo) {
+    gtag('event', 'question_answer', {
+      event_category: 'quiz',
+      question_id: qId,
+      correct: isCorrect,
+      response_time: Math.round(timeSeconds * 10) / 10,
+      combo: combo,
+    });
+  },
+  gameComplete(mode, score, correctCount, total, maxCombo) {
+    gtag('event', 'game_complete', {
+      event_category: 'quiz',
+      game_mode: mode,
+      final_score: score,
+      correct_count: correctCount,
+      total_questions: total,
+      accuracy: Math.round(correctCount / total * 100),
+      max_combo: maxCombo,
+    });
+  },
+  sourceClick(publisher, questionId) {
+    gtag('event', 'source_click', {
+      event_category: 'engagement',
+      publisher: publisher,
+      question_id: questionId,
+    });
+  },
+  share(platform) {
+    gtag('event', 'share', {
+      event_category: 'social',
+      method: platform,
+    });
+  }
+};
+
+// ============================================================
+//  QUESTION DATABASE
+// ============================================================
+const questions = [
+  // === NEWS UNDERSTANDING ===
+  {
+    id:"q001", category:"news", categoryLabel:"ニュース理解",
+    question:"2026年2月28日に始まった軍事行動の直接的な開始者はどの国の組み合わせか？",
+    choices:["イランとロシア","米国とイスラエル","サウジアラビアとUAE","トルコとNATO"],
+    answer:1,
+    explanation:"2026年2月28日、米国とイスラエルがイランの複数の拠点に対して空爆を開始しました。これが現在の紛争の直接的な開始点です。開戦前日の2月27日にはオマーン外相が外交的「突破口」を発表していましたが、攻撃は実行されました。",
+    sources:[
+      {publisher:"Britannica",type:"press",title:"2026 Iran Conflict - Overview and Timeline",date:"2026-03",url:"https://www.britannica.com/event/2026-Iran-Conflict"},
+      {publisher:"AP News",type:"press",title:"Timeline: How the US-Israel strike on Iran unfolded",date:"2026-03-01",url:"https://apnews.com/"}
+    ]
+  },
+  {
+    id:"q002", category:"news", categoryLabel:"ニュース理解",
+    question:"開戦前日（2月27日）にオマーン外相が発表した内容は何だったか？",
+    choices:["イランへの宣戦布告","イランがウラン備蓄停止とIAEA査察受け入れに合意する外交的「突破口」","ホルムズ海峡の封鎖宣言","サウジアラビアとの軍事同盟"],
+    answer:1,
+    explanation:"開戦前日の2月27日、オマーン外相はイランがウラン備蓄の停止とIAEA（国際原子力機関）の査察受け入れに合意するという外交的「突破口」を発表しました。しかし、この外交努力にもかかわらず翌日に攻撃が開始されました。",
+    sources:[
+      {publisher:"International Crisis Group",type:"org",title:"Finding an Off-ramp in the Middle East War",date:"2026-03",url:"https://www.crisisgroup.org/"},
+      {publisher:"Wikipedia",type:"press",title:"Timeline of the 2026 Iran War",date:"2026-03",url:"https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war"}
+    ]
+  },
+  {
+    id:"q003", category:"news", categoryLabel:"ニュース理解",
+    question:"イランの反撃として、レバノンのヒズボラが行った行動は何か？",
+    choices:["停戦交渉の仲介","イスラエルに対するミサイル・ドローン攻撃","国連安保理への緊急提訴","トルコとの軍事同盟締結"],
+    answer:1,
+    explanation:"3月2日、レバノンのヒズボラはイスラエルに対してミサイルとドローンによる攻撃を開始し、紛争はレバノンにも拡大しました。これにより中東地域の不安定化がさらに進みました。",
+    sources:[
+      {publisher:"Reuters",type:"press",title:"Hezbollah launches missiles at Israel as Iran war escalates",date:"2026-03-02",url:"https://www.reuters.com/"},
+      {publisher:"Axios",type:"press",title:"All countries now involved in Iran war",date:"2026-03-03",url:"https://www.axios.com/2026/03/03/iran-war-countries-gulf-qatar-us"}
+    ]
+  },
+  {
+    id:"q004", category:"news", categoryLabel:"ニュース理解",
+    question:"トルコが紛争に巻き込まれた直接の原因は何か？",
+    choices:["米国との同盟義務","イランの弾道ミサイルがトルコ領内（ハタイ県）に着弾した","トルコが自主的にイランを攻撃した","NATO条約第5条の発動"],
+    answer:1,
+    explanation:"イランの弾道ミサイルがトルコのハタイ県ドルトヨル地区に着弾し、トルコはNATO統合防空システムで対応しました。トルコは自衛権を主張しましたが、積極的な参戦は行っていません。",
+    sources:[
+      {publisher:"Axios",type:"press",title:"All countries now involved in Iran war",date:"2026-03-03",url:"https://www.axios.com/2026/03/03/iran-war-countries-gulf-qatar-us"},
+      {publisher:"Reuters",type:"press",title:"Turkey intercepts Iranian ballistic missile",date:"2026-03",url:"https://www.reuters.com/"}
+    ]
+  },
+  {
+    id:"q005", category:"news", categoryLabel:"ニュース理解",
+    question:"トランプ政権がホルムズ海峡の海軍作戦への参加を要請したが、参加を明確に拒否した国はどれか？",
+    choices:["英国","ドイツ・イタリア・ギリシャ","オーストラリア","カナダ"],
+    answer:1,
+    explanation:"ドイツ、イタリア、ギリシャはトランプ政権のホルムズ海峡海軍作戦への参加要請を明確に拒否しました。日本も防衛大臣が艦船派遣の計画はないと述べ、エスカレーション回避を呼びかけています。",
+    sources:[
+      {publisher:"Al Jazeera",type:"press",title:"EU leaders reject military involvement in Strait of Hormuz amid war on Iran",date:"2026-03-16",url:"https://www.aljazeera.com/news/2026/3/16/eu-leaders-reject-military-involvement-in-strait-of-hormuz-amid-war-on-iran"},
+      {publisher:"Fortune",type:"press",title:"Iran war is not NATO's war, Europe says",date:"2026-03-16",url:"https://fortune.com/2026/03/16/europe-trump-iran-war-nato-persian-gulf-coalition-warships/"}
+    ]
+  },
+  {
+    id:"q006", category:"news", categoryLabel:"ニュース理解",
+    question:"2026年3月中旬時点で、イラン新最高指導者の停戦に対する立場は？",
+    choices:["無条件で停戦を受け入れる","停戦交渉中で近日中に合意見込み","米国とイスラエルが「敗北」し責任を取るまで停戦しないと拒否","国連の仲介による停戦を提案"],
+    answer:2,
+    explanation:"イランの新最高指導者モジタバ・ハメネイはすべての停戦提案を拒否し、「米国とイスラエルが敗北し、責任を取るまで和平は考えない」と述べました。イラン外相も「イランは停戦を求めていないが、戦争は終わるべき」と発言しています。",
+    sources:[
+      {publisher:"Iran International",type:"press",title:"Iran does not seek ceasefire but war must end, says FM",date:"2026-03-16",url:"https://www.iranintl.com/en/202603166219"},
+      {publisher:"Al Jazeera",type:"press",title:"Qatar calls on Iran to stop Gulf attacks, urges diplomatic solution",date:"2026-03-16",url:"https://www.aljazeera.com/news/2026/3/16/qatar-calls-on-iran-to-stop-gulf-attacks-urges-diplomatic-solution"}
+    ]
+  },
+  {
+    id:"q007", category:"news", categoryLabel:"ニュース理解",
+    question:"イランのドローン攻撃を受け、天然ガスの生産を停止した湾岸国はどこか？",
+    choices:["サウジアラビア","バーレーン","カタール","クウェート"],
+    answer:2,
+    explanation:"カタールはイランのドローンが2つのエネルギー施設を攻撃した後、天然ガスの生産を停止しました。カタールは外交的解決を呼びかけながらも、この被害を受けています。",
+    sources:[
+      {publisher:"Axios",type:"press",title:"All countries now involved in Iran war",date:"2026-03-03",url:"https://www.axios.com/2026/03/03/iran-war-countries-gulf-qatar-us"},
+      {publisher:"Al Jazeera",type:"press",title:"Qatar calls for diplomatic solution after attacks",date:"2026-03-16",url:"https://www.aljazeera.com/"}
+    ]
+  },
+  // === ECONOMY ===
+  {
+    id:"q008", category:"economy", categoryLabel:"経済影響",
+    question:"ホルムズ海峡は通常、1日あたり約何百万バレルの石油が通過するか？",
+    choices:["約500万バレル","約1,000万バレル","約2,000万バレル","約3,500万バレル"],
+    answer:2,
+    explanation:"ホルムズ海峡は通常、1日あたり約2,000万バレルの石油が通過しており、これは世界の海上石油輸送量の約20%に相当します。今回の紛争でタンカーの通航量は約70%減少しました。",
+    sources:[
+      {publisher:"CNBC",type:"press",title:"Strait of Hormuz crisis explained: How US-Iran-Israel war threatens global shipping",date:"2026-03-02",url:"https://www.cnbc.com/2026/03/02/strait-of-hormuz-crisis-us-iran-israel-war-shipping-trade-oil.html"},
+      {publisher:"UNCTAD",type:"org",title:"Strait of Hormuz disruptions: implications for global trade",date:"2026-03",url:"https://unctad.org/publication/strait-hormuz-disruptions-implications-global-trade-and-development"}
+    ]
+  },
+  {
+    id:"q009", category:"economy", categoryLabel:"経済影響",
+    question:"紛争開始前（2月27日）の原油価格は約70ドル/バレルだった。開戦1週間後のピーク価格は約いくらか？",
+    choices:["約80ドル","約95ドル","約120ドル","約150ドル"],
+    answer:2,
+    explanation:"原油価格は開戦前の約70ドル/バレルから、わずか1週間で約120ドル/バレル近くまで急騰しました。25%以上の上昇です。3月中旬時点では約100ドル前後で推移しています。",
+    sources:[
+      {publisher:"Al Jazeera",type:"press",title:"Oil prices rise sharply after US-Israeli attacks on Iran",date:"2026-03-02",url:"https://www.aljazeera.com/news/2026/3/2/oil-prices-rise-sharply-after-us-israeli-attacks-on-iran"},
+      {publisher:"CNN Business",type:"press",title:"Oil surges and stock futures sink as Iran conflict escalates",date:"2026-03-01",url:"https://www.cnn.com/2026/03/01/business/oil-prices-us-attack-iran-vis"}
+    ]
+  },
+  {
+    id:"q010", category:"economy", categoryLabel:"経済影響",
+    question:"ホルムズ海峡を迂回するためにサウジアラビアが活用しているインフラは何か？",
+    choices:["スエズ運河","東西パイプライン（ヤンブーへ）","シベリア鉄道","パナマ運河"],
+    answer:1,
+    explanation:"サウジアラビアはホルムズ海峡を避けるため、東西パイプラインを使って紅海側のヤンブー港へ原油を迂回させています。UAEも同様にアブダビ原油パイプラインでフジャイラ港への迂回を行っていますが、容量は通常通航量の一部（350〜550万バレル/日）にとどまります。",
+    sources:[
+      {publisher:"Reuters",type:"press",title:"Gulf oil producers scramble to bypass Hormuz as Iran locks down the strait",date:"2026-03-17",url:"https://www.reuters.com/"},
+      {publisher:"CNBC",type:"press",title:"Strait of Hormuz crisis: alternative shipping routes",date:"2026-03-02",url:"https://www.cnbc.com/"}
+    ]
+  },
+  {
+    id:"q011", category:"economy", categoryLabel:"経済影響",
+    question:"紛争後、ホルムズ海峡を通過するタンカーの戦争保険料はどの程度変化したか？",
+    choices:["ほぼ変化なし","約2倍","約12倍（船舶価値の約5%に）","約50倍"],
+    answer:2,
+    explanation:"戦争リスク保険料は最大で約12倍に急騰し、1億ドルの船舶に対して約500万ドル（船舶価値の約5%）の保険料がかかるケースも出ています。主要保険会社（Gard、Skuld、NorthStandardなど）は戦争リスクの引き受けを停止しました。",
+    sources:[
+      {publisher:"Bloomberg",type:"press",title:"Shipping insurance costs to cross Hormuz soar after ship attacks",date:"2026-03-16",url:"https://www.bloomberg.com/"},
+      {publisher:"Al Jazeera",type:"press",title:"Maritime insurers cancel war risk cover in Gulf",date:"2026-03-03",url:"https://www.aljazeera.com/economy/2026/3/3/maritime-insurers-cancel-war-risk-cover-in-gulf-will-it-spike-energy-cost"}
+    ]
+  },
+  {
+    id:"q012", category:"economy", categoryLabel:"経済影響",
+    question:"海運大手Hapag-Lloydが設定した紛争による追加運賃（20フィートコンテナ1個あたり）はいくらか？",
+    choices:["$200","$500","$1,500","$5,000"],
+    answer:2,
+    explanation:"Hapag-Lloydは20フィートコンテナ1個あたり1,500ドル、冷凍・特殊機材には3,500ドルの追加運賃を設定しました。CMA CGMはさらに高く、20フィートで2,000ドル、40フィートで3,000ドル、冷凍で4,000ドルです。迂回による航行時間は10〜14日延び、燃料費だけで1隻あたり約100万ドル追加されます。",
+    sources:[
+      {publisher:"The National",type:"press",title:"Strait of Hormuz escalation: shipping surcharges and insurance impact",date:"2026-03-02",url:"https://www.thenationalnews.com/business/economy/2026/03/02/hormuz-iran-us-shipping-war/"},
+      {publisher:"Bloomberg",type:"press",title:"Shipping costs surge as Hormuz crisis deepens",date:"2026-03-16",url:"https://www.bloomberg.com/"}
+    ]
+  },
+  {
+    id:"q013", category:"economy", categoryLabel:"経済影響",
+    question:"Maersk（マースク）はどのような措置を取ったか？",
+    choices:["通常通り運航を継続","運賃を50%値下げ","UAE・オマーン・イラク・クウェート・カタール等への特殊貨物を停止","全世界の運航を停止"],
+    answer:2,
+    explanation:"世界最大級のコンテナ船社Maerskは、UAE、オマーン、イラク、クウェート、カタール、ヨルダン、バーレーン、サウジアラビアへの特殊貨物の輸送を停止しました。通常貨物は迂回ルートで継続していますが、大幅な遅延とコスト増が生じています。",
+    sources:[
+      {publisher:"The National",type:"press",title:"Maersk suspends special cargo amid Hormuz crisis",date:"2026-03-02",url:"https://www.thenationalnews.com/"},
+      {publisher:"Bloomberg",type:"press",title:"Global shipping disruptions deepen as Hormuz risks grow",date:"2026-03-16",url:"https://www.bloomberg.com/"}
+    ]
+  },
+  // === HUMANITARIAN ===
+  {
+    id:"q014", category:"news", categoryLabel:"ニュース理解",
+    question:"WFP（世界食糧計画）は、紛争が6月まで続き原油が100ドル超で推移した場合、新たに何百万人が深刻な食料不安に陥ると警告しているか？",
+    choices:["約500万人","約1,500万人","約4,500万人","約1億人"],
+    answer:2,
+    explanation:"WFPは、紛争が継続し原油価格が100ドル/バレル超で推移した場合、新たに約4,500万人が深刻な食料不安に陥ると警告しています。これは既存の3億1,800万人に加算され、合計約3億6,300万人に達する可能性があります。",
+    sources:[
+      {publisher:"WFP",type:"org",title:"How Middle East conflict is fuelling hunger globally",date:"2026-03",url:"https://www.wfp.org/stories/how-middle-east-conflict-fuelling-hunger-wfp-scales-assistance"},
+      {publisher:"Reuters",type:"press",title:"Iran war may push 45 million people into acute hunger by June",date:"2026-03-17",url:"https://www.reuters.com/"}
+    ]
+  },
+  {
+    id:"q015", category:"news", categoryLabel:"ニュース理解",
+    question:"2026年3月中旬時点で、イラン国内の民間人被害はどの程度か？",
+    choices:["死者ゼロ・軍事施設のみ被害","死者約100人・負傷者約500人","死者約1,200人以上・負傷者18,000人以上","死者約10,000人以上"],
+    answer:2,
+    explanation:"3月中旬時点で、イラン国内では約1,200人以上が死亡（うち約200人が子ども）、18,000人以上が負傷しています。42,000以上の民間施設（住宅・学校・病院）が損傷し、60万〜100万世帯が避難を余儀なくされています。",
+    sources:[
+      {publisher:"UN OCHA",type:"org",title:"UN Relief Chief warns of humanitarian fallout increasingly daunting",date:"2026-03",url:"https://www.unocha.org/news/un-relief-chief-middle-east-violences-humanitarian-fallout-increasingly-daunting"},
+      {publisher:"NPR",type:"press",title:"Iran war cost: deaths, displacement and destruction 2 weeks in",date:"2026-03-14",url:"https://www.npr.org/2026/03/14/nx-s1-5746623/iran-war-cost-deaths"}
+    ]
+  },
+  {
+    id:"q016", category:"news", categoryLabel:"ニュース理解",
+    question:"OCHA（国連人道問題調整事務所）の報告で、イランの医療施設に関する被害状況は？",
+    choices:["被害なし","230以上の医療施設が損傷・破壊、30以上の医療車両が破壊","すべての医療施設が完全に機能停止","海外からの医療支援で完全に補填済み"],
+    answer:1,
+    explanation:"OCHAの報告によると、230以上の医療施設が損傷または破壊され、30以上の医療車両が破壊されました。5つの医療サービス拠点のうち稼働しているのは2つだけで、それも部分的にしか機能していません。",
+    sources:[
+      {publisher:"UN OCHA",type:"org",title:"UN Relief Chief warns of 'moment of grave peril'",date:"2026-03-06",url:"https://www.unocha.org/"},
+      {publisher:"WHO",type:"org",title:"Health facility attacks in Iran and Lebanon",date:"2026-03",url:"https://www.who.int/"}
+    ]
+  },
+  // === INFO LITERACY ===
+  {
+    id:"q017", category:"literacy", categoryLabel:"情報リテラシー",
+    question:"次の見出しのうち、紛争に関する「誤情報」の特徴を最も強く持つのはどれか？",
+    choices:["ホルムズ海峡の通航に混乱が生じている","原油価格が急騰し海運コストに影響","イラン軍のミサイル4発がUSS空母に直撃し大破","湾岸諸国が原油の迂回ルートを確保中"],
+    answer:2,
+    explanation:"イランの国営メディアは「弾道ミサイル4発がUSS Abraham Lincolnに命中した」と主張しましたが、米中央軍は3月1日に「命中しておらず、近くにも到達していない」と否定しました。NewsGuardはイラン発の虚偽情報を18件特定しています。断定的すぎる戦果報告は誤情報の典型パターンです。",
+    sources:[
+      {publisher:"Euronews",type:"press",title:"Iran's state media ramps up disinformation campaign as US-Iran conflict wages",date:"2026-03-06",url:"https://www.euronews.com/next/2026/03/06/irans-state-media-ramps-up-disinformation-campaign-as-the-us-iran-conflict-wages"},
+      {publisher:"PolitiFact",type:"press",title:"Identifying fake war imagery in the Iran conflict",date:"2026-03-12",url:"https://www.politifact.com/article/2026/mar/12/identifying-fake-war-imagery-us-israel-iran/"}
+    ]
+  },
+  {
+    id:"q018", category:"literacy", categoryLabel:"情報リテラシー",
+    question:"SNSで拡散されている「戦闘映像」の中で、実際に確認された問題は？",
+    choices:["すべて正確なリアルタイム映像","2024年や2025年の古い映像やAI生成映像が「最新」として再投稿されている","映像はすべて各国政府が公式に配信している","フェイク映像は存在しない"],
+    answer:1,
+    explanation:"2024年4月、2024年10月、2025年6月のイランによる過去のミサイル攻撃映像が「最新の戦闘映像」として再投稿されています。さらにAIで生成された偽の戦闘映像や画像が数千万回再生されています。映像の日時・場所の検証が必要です。",
+    sources:[
+      {publisher:"Rolling Stone",type:"press",title:"AI-generated misinformation and propaganda in the Iran war",date:"2026-03",url:"https://www.rollingstone.com/culture/culture-features/ai-misinformation-propaganda-iran-war-1235526150/"},
+      {publisher:"Poynter",type:"press",title:"Old and AI-generated videos fuel Iran war misinformation",date:"2026-03",url:"https://www.poynter.org/fact-checking/2026/fake-videos-strikes-iran/"},
+      {publisher:"CNN",type:"press",title:"Fake AI images and videos spread across social media during Iran conflict",date:"2026-03-11",url:"https://www.cnn.com/2026/03/11/politics/fake-ai-images-videos-iran-war"}
+    ]
+  },
+  {
+    id:"q019", category:"literacy", categoryLabel:"情報リテラシー",
+    question:"紛争報道において、情報の信頼性を判断する際に最も重要なのは？",
+    choices:["フォロワー数が多いアカウントの投稿","複数の独立した報道機関による裏付け","最も早く出た速報","感情に訴える写真の有無"],
+    answer:1,
+    explanation:"信頼性の高い情報判断には、複数の独立した報道機関による裏付け（クロスチェック）が最も重要です。速報は訂正が入ることが多く、フォロワー数は信頼性の指標ではありません。今回の紛争でも、AI生成画像や古い映像の誤用が多数確認されており、単一ソースへの依存は危険です。",
+    sources:[
+      {publisher:"PolitiFact",type:"press",title:"How to identify fake war imagery",date:"2026-03-12",url:"https://www.politifact.com/article/2026/mar/12/identifying-fake-war-imagery-us-israel-iran/"},
+      {publisher:"Poynter",type:"press",title:"Verification tools for conflict coverage",date:"2026-03",url:"https://www.poynter.org/"}
+    ]
+  },
+  {
+    id:"q020", category:"literacy", categoryLabel:"情報リテラシー",
+    question:"一部の湾岸諸国が紛争中に実施した、SNS上の情報に関する措置は何か？",
+    choices:["SNSの全面的な遮断","未検証の噂を拡散した市民・外国人の起訴","すべての報道機関を国営化","インターネットの完全停止"],
+    answer:1,
+    explanation:"複数の湾岸諸国は、イランの攻撃に関する未検証の噂やデマを拡散した市民や外国人に対して起訴キャンペーンを開始しました。情報管理の一環ですが、報道の自由との関係で議論を呼んでいます。",
+    sources:[
+      {publisher:"CNN",type:"press",title:"Gulf states crack down on misinformation during conflict",date:"2026-03",url:"https://www.cnn.com/"},
+      {publisher:"Euronews",type:"press",title:"Iran disinformation and regional responses",date:"2026-03-06",url:"https://www.euronews.com/"}
+    ]
+  }
+];
+
+// ============================================================
+//  GAME STATE
+// ============================================================
+let currentMode = 'all';
+let activeQuestions = [];
+let currentIndex = 0;
+let score = 0;
+let combo = 0;
+let maxCombo = 0;
+let correctCount = 0;
+let totalTime = 0;
+let questionStartTime = 0;
+let answered = false;
+
+// ============================================================
+//  GAME FUNCTIONS
+// ============================================================
+function startGame(mode) {
+  currentMode = mode;
+  if (mode === 'all') {
+    activeQuestions = shuffleArray([...questions]);
+  } else {
+    activeQuestions = shuffleArray(questions.filter(q => q.category === mode));
+  }
+  currentIndex = 0;
+  score = 0; combo = 0; maxCombo = 0; correctCount = 0; totalTime = 0;
+
+  document.getElementById('title-screen').style.display = 'none';
+  document.getElementById('result-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'block';
+
+  Analytics.gameStart(mode);
+  updateScore();
+  showQuestion();
+}
+
+function showQuestion() {
+  answered = false;
+  questionStartTime = Date.now();
+  const q = activeQuestions[currentIndex];
+
+  document.getElementById('progress-fill').style.width = ((currentIndex) / activeQuestions.length * 100) + '%';
+  document.getElementById('q-counter').textContent = `第${currentIndex+1}問 / ${activeQuestions.length}問`;
+
+  const catTag = document.getElementById('cat-tag');
+  catTag.textContent = q.categoryLabel;
+  catTag.className = 'category-tag cat-' + (q.category === 'news' ? 'news' : q.category === 'economy' ? 'economy' : 'literacy');
+
+  document.getElementById('question-text').textContent = q.question;
+
+  const choicesEl = document.getElementById('choices');
+  choicesEl.innerHTML = '';
+  const labels = ['A','B','C','D'];
+  q.choices.forEach((c, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.innerHTML = `<span class="choice-label">${labels[i]}</span><span>${c}</span>`;
+    btn.onclick = () => selectAnswer(i);
+    choicesEl.appendChild(btn);
+  });
+
+  // インフィード広告: N問ごとに表示
+  if (currentIndex > 0 && currentIndex % AD_CONFIG.inFeedInterval === 0) {
+    AdManager.showInFeedAd();
+  } else {
+    AdManager.hideInFeedAd();
+  }
+
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('next-btn').classList.remove('show');
+
+  // ページトップにスクロール
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function selectAnswer(idx) {
+  if (answered) return;
+  answered = true;
+
+  const q = activeQuestions[currentIndex];
+  const elapsed = (Date.now() - questionStartTime) / 1000;
+  totalTime += elapsed;
+  const isCorrect = idx === q.answer;
+
+  const btns = document.querySelectorAll('.choice-btn');
+  btns.forEach(b => b.classList.add('disabled'));
+
+  if (isCorrect) {
+    btns[idx].classList.add('correct');
+    correctCount++;
+    combo++;
+    if (combo > maxCombo) maxCombo = combo;
+
+    let points = 10;
+    if (combo >= 3) { points = 15; showCombo(combo); }
+    if (combo >= 5) points = 20;
+    if (elapsed < 5) points += 5;
+
+    score += points;
+  } else {
+    btns[idx].classList.add('wrong');
+    btns[q.answer].classList.add('show-correct');
+    combo = 0;
+  }
+
+  // GA4: 回答イベント
+  Analytics.questionAnswer(q.id, isCorrect, elapsed, combo);
+
+  updateScore();
+  showExplanation(q);
+
+  document.getElementById('next-btn').classList.add('show');
+  document.getElementById('next-btn').textContent =
+    currentIndex < activeQuestions.length - 1 ? '次の問題へ →' : '結果を見る →';
+}
+
+function showExplanation(q) {
+  document.getElementById('exp-text').textContent = q.explanation;
+
+  const srcList = document.getElementById('sources-list');
+  srcList.innerHTML = '';
+  q.sources.forEach(s => {
+    const typeClass = s.type === 'org' ? 'src-type-org' : s.type === 'gov' ? 'src-type-gov' : 'src-type-press';
+    const typeLabel = s.type === 'org' ? '国際機関' : s.type === 'gov' ? '政府' : '報道機関';
+    const card = document.createElement('div');
+    card.className = 'source-card';
+    card.innerHTML = `
+      <span class="src-pub">${s.publisher}</span>
+      <span class="src-type ${typeClass}">${typeLabel}</span>
+      <div class="src-title">${s.title}</div>
+      <div class="src-date">${s.date} ｜ <a href="${s.url}" target="_blank" rel="noopener" onclick="Analytics.sourceClick('${s.publisher}','${q.id}')">記事を見る ↗</a></div>
+    `;
+    srcList.appendChild(card);
+  });
+
+  document.getElementById('explanation').classList.add('show');
+}
+
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex >= activeQuestions.length) {
+    showResult(true);
+  } else {
+    showQuestion();
+  }
+}
+
+function updateScore() {
+  document.getElementById('score-display').textContent = `スコア: ${score}`;
+}
+
+function showCombo(c) {
+  const popup = document.getElementById('combo-popup');
+  popup.textContent = `${c}コンボ!`;
+  popup.classList.remove('show');
+  void popup.offsetWidth;
+  popup.classList.add('show');
+}
+
+function showResult(show) {
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('title-screen').style.display = 'none';
+  AdManager.hideInFeedAd();
+
+  if (!show) {
+    document.getElementById('result-screen').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('result-screen').style.display = 'block';
+  document.getElementById('progress-fill').style.width = '100%';
+
+  const total = activeQuestions.length;
+  const pct = Math.round(correctCount / total * 100);
+
+  document.getElementById('final-score').textContent = score;
+  document.getElementById('stat-correct').textContent = `${correctCount}/${total}`;
+  document.getElementById('stat-combo').textContent = maxCombo;
+  document.getElementById('stat-time').textContent = (totalTime / total).toFixed(1) + 's';
+
+  let rank, msg;
+  if (pct >= 90) { rank = '地政学エキスパート'; msg = '報道・国際情勢への理解が非常に高いです。情報の真偽を見抜く力もあります。'; }
+  else if (pct >= 70) { rank = '情勢分析官'; msg = '幅広い知識がありますが、一部のテーマをさらに深掘りするとより良いです。'; }
+  else if (pct >= 50) { rank = 'ニュースウォッチャー'; msg = '基本的な理解はあります。出典リンクから記事を読んで理解を深めましょう。'; }
+  else { rank = '学習スタート'; msg = '中東情勢は複雑ですが、信頼できるソースから学ぶことで理解が深まります。'; }
+
+  document.getElementById('result-rank').textContent = rank;
+  document.getElementById('result-message').textContent = msg;
+
+  // GA4: ゲーム完了イベント
+  Analytics.gameComplete(currentMode, score, correctCount, total, maxCombo);
+
+  // 結果画面広告リフレッシュ
+  AdManager.refreshResultAd();
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function backToTitle() {
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('result-screen').style.display = 'none';
+  document.getElementById('title-screen').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================================
+//  SNS SHARE
+// ============================================================
+function getShareText() {
+  const total = activeQuestions.length;
+  const pct = Math.round(correctCount / total * 100);
+  return `地政学クイズ：中東危機2026\nスコア: ${score}pt ｜ 正答率: ${pct}% ｜ 最大コンボ: ${maxCombo}\n#地政学クイズ #中東危機2026`;
+}
+
+function shareToX() {
+  const text = encodeURIComponent(getShareText());
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://x.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+  Analytics.share('x');
+}
+
+function shareToLine() {
+  const text = encodeURIComponent(getShareText() + '\n' + window.location.href);
+  window.open(`https://social-plugins.line.me/lineit/share?text=${text}`, '_blank');
+  Analytics.share('line');
+}
+
+function copyShareText() {
+  const text = getShareText() + '\n' + window.location.href;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.share-copy');
+    const orig = btn.textContent;
+    btn.textContent = 'コピーしました!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+  Analytics.share('copy');
+}
+
+// ============================================================
+//  UTILITY
+// ============================================================
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  AdManager.init();
+});
+</script>
+</body>
+</html>
