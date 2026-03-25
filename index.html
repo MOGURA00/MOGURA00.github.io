@@ -6,7 +6,7 @@
 <title>地政学クイズ：中東危機2026</title>
 <meta name="description" content="2026年中東危機を理解するための出典付き時事クイズゲーム。ホルムズ海峡・原油・人道危機・情報リテラシーを学ぶ。">
 <meta property="og:title" content="地政学クイズ：中東危機2026">
-<meta property="og:description" content="信頼できる報道機関・国際機関の情報に基づく時事クイズ。あなたの中東情勢理解度を詧そう。">
+<meta property="og:description" content="信頼できる報道機関・国際機関の情報に基づく時事クイズ。あなたの中東情勢理解度を試そう。">
 <meta property="og:type" content="website">
 
 <!-- Google Analytics 4 読み込み -->
@@ -40,7 +40,37 @@ body{font-family:'Segoe UI','Hiragino Sans',sans-serif;background:var(--bg);colo
 .header{text-align:center;padding:24px 0 12px}
 .header h1{font-size:1.5rem;font-weight:700;color:var(--accent2);letter-spacing:.5px}
 .header .subtitle{font-size:.85rem;color:var(--text2);margin-top:4px}
-.disclaimer{font-size:.72rem;color:var(--text2);text-align:center;padding:8px 16px;background:var(--card);border-radius:6px;margin:8px 0 16px;border-left:3px solid var(--orange)}
+.disclaimer{font-size:.72rem;color:var(--text2);text-align:center;padding:8px 16px;background:var(--card);border-radius:6px;margin:8px 0r}
+    .book-card{flex:0 0 170px;padding:12px 10px}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>地政学クイズ：中東危機2026</h1>
+        <p class="subtitle">信頼できる報道・国際機関の情報に基づく時事クイズ</p>
+    </div>
+    <div class="disclaimer">本クイズは2026年3月時点の報道機100%9杰%東危機移設を1範完木！</div>
+    <div class="mode-select" id="mode-select">
+        <button class="mode-btn $s active" data-mode="carousel">Carousel</button>
+        <button class="mode-btn $s" data-mode="grid">Grid</button>
+    </div>
+    <div class="reader-container" id="reader-container"></div>
+    <div class="spinner" id="spinner">
+        <div class="dots"></div>
+    </div>
+  
+</div>
+
+
+<footer>
+  
+</footer>
+
+</body>
+</html> 16px;border-left:3px solid var(--orange)}
 
 /* ===== TITLE SCREEN ===== */
 #title-screen{text-align:center;padding:40px 0}
@@ -55,67 +85,104 @@ body{font-family:'Segoe UI','Hiragino Sans',sans-serif;background:var(--bg);colo
 
 /* ===== PROGRESS ===== */
 .progress-bar{background:var(--card);border-radius:20px;height:8px;margin:16px 0 8px;overflow:hidden}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:20px;transition:width .4s ease}
-.status-row{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--text2);margin-bottom:16px}
-.score-display{font-weight:600;color:var(--gold)}
-.category-tag{display:inline-block;font-size:.72rem;padding:3px 10px;border-radius:12px;font-weight:600;margin-bottom:12px}
-.cat-news{background:#1e3a5f;color:#60a5fa}
-.cat-economy{background:#3a2e1e;color:#f59e0b}
-.cat-literacy{background:#1e3a2e;color:#34d399}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:all .3s}
 
-/* ===== QUESTION ===== */
-#quiz-screen{display:none}
-.question-card{background:var(--card);border-radius:12px;padding:24px;margin-bottom:16px}
-.question-text{font-size:1.05rem;font-weight:500;line-height:1.7;margin-bottom:20px}
-.choices{display:flex;flex-direction:column;gap:10px}
-.choice-btn{background:var(--card2);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;cursor:pointer;text-align:left;font-size:.95rem;color:var(--text);transition:all .15s;display:flex;align-items:flex-start;gap:12px}
-.choice-btn:hover:not(.disabled){border-color:var(--accent);background:#1a2d45}
-.choice-btn.correct{border-color:var(--green);background:#0f2918;color:var(--green)}
-.choice-btn.wrong{border-color:var(--red);background:#2a0f0f;color:var(--red)}
-.choice-btn.disabled{cursor:default;opacity:.7}
-.choice-btn.show-correct{border-color:var(--green);opacity:1;background:#0f2918}
-.choice-label{font-weight:700;min-width:24px;color:var(--accent2)}
+/* ===== CAROUSED�===== */
+.carousel-container{display:none;display: grid;grid-auto-flow:column;filter:brightness(1};
+.carousel-container.active{display:grid}
+.carousel-item{padding:32px 16px;background:var(--card);border-radius:12px;margin:8px 0;cursor:pointer;transition:all .2s;display:grid;grid-auto-flow:row;align-content:center}
+.carousel-item:hover{border:1px solid var(--accent);background:var(--card2)}
+.carousel-item .book-title{font-weight:600;color:var(--accent2);font-size:1.1rem}
+.carousel-item .book-desc{font-size:.8rem;color:var(--text2);margin-top:4px;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;flex:1}
+.carousel-item .book-img{witdth:100%;height:144px;border-radius:6px;object-fit:cover}
+.carousel-item .book-rating{display:flex;align-items:center;margin-top:8px;gap:8px}
+.carousel-item .book-rating spa{font-weight:600;font-size:0.9rem;color:var(--green);space-replace:normalize}
 
-/* ===== EXPLANATION ===== */
-.explanation{display:none;margin-top:16px}
-.explanation.show{display:block}
-.exp-box{background:var(--card);border-radius:10px;padding:20px;border-left:3px solid var(--accent)}
-.exp-title{font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--accent2)}
-.exp-text{font-size:.88rem;color:var(--text);line-height:1.7;margin-bottom:16px}
+/* ===== GRID ===== */
+.grid-container{display:none;display:grid;grid-template-columns:repeat(auto-fit, 1fr);gid:18px;filter:brightness(1)}
+.grid-container.active{display:grid}
+.grid-item{padding:32px 16px;background:var(--card);border-radius:12px;cursor:pointer;transition:all .2s}
+.grid-item:hover{border:1px solid var(--accent);background:var(--card2)}
+.grid-item .book-img{width:100%;border-radius:6px;object-fit:cover}
 
-/* ===== SOURCE CARDS ===== */
-.sources-title{font-size:.78rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.source-card{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:8px;font-size:.82rem}
-.source-card .src-pub{font-weight:700;color:var(--accent2)}
-.source-card .src-type{font-size:.7rem;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:600}
-.src-type-press{background:#1e3a5f;color:#60a5fa}
-.src-type-org{background:#2a1e3a;color:#a78bfa}
-.src-type-gov{background:#1e3a2e;color:#34d399}
-.source-card .src-title{color:var(--text);margin-top:4px;line-height:1.4}
-.source-card .src-date{color:var(--text2);font-size:.75rem;margin-top:2px}
-.source-card a{color:var(--accent2);text-decoration:none}
-.source-card a:hover{text-decoration:underline}
-.next-btn{display:none;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px 32px;font-size:1rem;font-weight:600;cursor:pointer;width:100%;margin-top:16px;transition:background .2s}
-.next-btn:hover{background:#2563eb}
-.next-btn.show{display:block}
+/* ===== PAGINATION ===== */
+.footer{text-align:center;padding:16px 0 32px;color:var(--text2);font-size:.75rem}
+.footer a{color:var(--accent2);text-decoration:none;transition:all .2s}
+.footer a:hover{opacity:.7}
+.footer .page-info{font-size:1.1rem;margin:8px 0}
+.footer .pagination{margin:12px 0; display:flex;justify-content:center;gap:4px;}
+.footer .pagination b{non-active:{color:var(--text2);cursor:default;text-decoration:underline}}
+.footer .pagination b:active{color:var(--accent2);font-weight:600}
+.ofmodate;margin-bottom:32px}
+.mode-btn.show{display:block}
 
-/* ===== RESULT SCREEN ===== */
-#result-screen{display:none;text-align:center;padding:32px 0}
-.result-card{background:var(--card);border-radius:16px;padding:32px 24px}
-.result-score{font-size:3rem;font-weight:800;color:var(--gold)}
-.result-label{font-size:1rem;color:var(--text2);margin:4px 0 16px}
-.result-rank{font-size:1.2rem;font-weight:700;margin-bottom:8px}
-.result-message{font-size:.9rem;color:var(--text2);margin-bottom:24px;line-height:1.6}
-.stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0}
-.stat-box{background:var(--card2);border-radius:10px;padding:14px 8px}
-.stat-val{font-size:1.4rem;font-weight:700}
-.stat-label{font-size:.72rem;color:var(--text2);margin-top:2p{}
+/* ===== ROt-btn.show{display:block}
 
-/* SHARE */
-.share-section{margin:20px 0 8px}
-.share-title{font-size:.78rem;color:var(--text2);margin-bottom:10px}
-.share-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.share-btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-size:.82rem;font-weight:600;transition:all .15s;color:#fff}
+/* ===== Removed.show{display:block}
+/* ===== ADVERTISEMENT LEFT (Gyoutube [URLr,.container{max-width:100%;margin:0 auto;padding:0}
+
+/* ===== ADVERTISEMENT RIGHT (Amazon Com;font-size:.82rem;font-weight:600;transition:all .15s;color:#fff}
+.share-btn:hover{opacity:.85;transform:translateY(-1px)}
+.share-x{background:#000}
+.share-line{background:#06c755}
+.share-copy{background:var(--card2);color:var(--text2);border:1px solid var(--border)}
+.share-copy:hover{border-color:var(--accent);color:var(--accent2)}
+.retry-btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px 40px;font-size:1rem;font-weight:600;cursor:pointer;margin-top:20px;transition:background .2s}
+.retry-btn:hover{background:#2563eb}
+.back-btn{background:transparent;color:var(--text2);border:1px solid var(--border);border-radius:10px;padding:12px 32px;font-size:.9rem;cursor:pointer;margin-top:10px;transition:all .2s}
+.back-btn:hover{border-color:var(--accent);color:var(--accent2)}
+
+/* ===== COMBO ===== */
+.combo-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:2rem;font-weight:800;color:var(--gold);pointer-events:none;z-index:100;flex:0 0 200px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 14px;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--text);scroll-snap-align:start;display:flex;flex-direction:column}
+.book-card:hover{border-color:var(--accent);transform:translateY(-2px);background:var(--card2)}
+.book-emoji{font-size:1.8rem;margin-bottom:8px}
+.book-tag{display:inline-block;font-size:.65rem;padding:2px 8px;border-radius:8px;font-weight:600;margin-bottom:8px;width:fit-content}
+.book-title{font-size:.85rem;font-weight:700;color:var(--accent2);line-height:1.4;margin-bottom:4px}
+.book-author{font-size:.72rem;color:var(--text2);margin-bottom:6px}
+.book-desc{font-size:.72rem;color:var(--text2);line-height:1.5;flex-grow:1}
+.book-amazon{display:inline-block;margin-top:8px;font-size:.7rem;color:var(--orange);font-weight:600}
+
+@media(max-width:500px){
+    .container{padding:10px}
+    .question-text{font-size:.95rem}
+    .stat-grid{grid-template-columns:1fr 1fr}
+    .book-card{flex:0 0 170px;padding:12px 10px}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>地政学クイズ：中東危機2026</h1>
+        <p class="subtitle">信頼できる報道・国際機関の情報に基づく時事クイズ</p>
+    </div>
+    <div class="disclaimer">本クイズは2026年3月時点の報道ベースで作成されています。現行の紛争に関する内容を含みます。情報は随時更新される可能性があります。</div>
+
+    <!-- ===== TITLE SCREEN ===== -->
+    <div id="title-screen">
+        <h2>中東傱機を読み解く</h2>
+        <p class="tagline">ホルムズ海峡・原油・人道危機・情報リテラシー</p>
+        <p style="font-size:.85rem;color:var(--text2);margin-bottom:8px">モードを選択してください</p>
+        <div class="mode-select">
+            <div class="mode-btn" onclick="startGame('all')">
+                <span class="mode-icon">📰</span>
+                <div class="mode-title">総合モード（20問）</div>
+                <div class="mode-desc">戦況理解・経済影響・情報リテラシーの全ジャンルから出題</div>
+            </div>
+            <div class="mode-btn" onclick="startGame('news')">
+                <span class="mode-icon">🔍</span>
+                <div class="mode-title">ニュース理解モード</div>
+                <div class="mode-desc">紛争の経緯・参加国・外交を中心に出題</div>
+            </div>
+            <div class="mode-btn" onclick="startGame('economy')">
+                <span class="mode-icon">📊</span>
+                <div class="mode-title">経済影響モード</div>
+                <div class="mode-desc">原油価格・海運・保険・物流コストを中心に出題</div>
+            </div>
+            <div class="mode-btn" onclick="startGame('literacy')">
+                <span class="mode-icon">🛡️</span>
+                <div class="mode-title">;font-size:.82rem;font-weight:600;transition:all .15s;color:#fff}
 .share-btn:hover{opacity:.85;transform:translateY(-1px)}
 .share-x{background:#000}
 .share-line{background:#06c755}
@@ -170,7 +237,7 @@ body{font-family:'Segoe UI','Hiragino Sans',sans-serif;background:var(--bg);colo
 
     <!-- ===== TITLE SCREEN ===== -->
     <div id="title-screen">
-        <h2>中東危機を読み解く</h2>
+        <h2>中東傱機を読み解く</h2>
         <p class="tagline">ホルムズ海峡・原油・人道危機・情報リテラシー</p>
         <p style="font-size:.85rem;color:var(--text2);margin-bottom:8px">モードを選択してください</p>
         <div class="mode-select">
@@ -191,29 +258,22 @@ body{font-family:'Segoe UI','Hiragino Sans',sans-serif;background:var(--bg);colo
             </div>
             <div class="mode-btn" onclick="startGame('literacy')">
                 <span class="mode-icon">🛡️</span>
-                <div class="mode-title">情報リテラシーモード</div>
-                <div class="mode-desc">誤情報の判別・メディアリテラシーを中心に出題</div>
+                <div class="mode-title">          <div class="mode-title">総合モード（20問）</div>
+                <div class="mode-desc">戦況理解・経済影響・情報リテラシーの全ジャンルから出題</div>
             </div>
-        </div>
-        <!-- 書籍カルーセル: スタート画面 -->
-        <div id="book-carousel-start" style="margin-top:24px"></div>
-    </div>
-
-    <!-- ===== QUIZ SCREEN ===== -->
-    <div id="quiz-screen">
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-        <div class="status-row">
-            <span id="q-counter">第1問 / 20問</span>
-            <span class="score-display" id="score-display">スコア: 0</span>
-        </div>
-        <div class="question-card">
-            <span class="category-tag" id="cat-tag"></span>
-            <div class="question-text" id="question-text"></div>
-            <div class="choices" id="choices"></div>
-        </div>
-        <div class="explanation" id="explanation">
-            <div class="exp-box">
-                <div class="exp-title">📖 解説</div>
+            <div class="mode-btn" onclick="startGame('news')">
+                <span class="mode-icon">🔍</span>
+                <div class="mode-title">ニュース理解モード</div>
+                <div class="mode-desc">紛争の経緯・参加国・外交を中心に出題</div>
+            </div>
+            <div class="mode-btn" onclick="startGame('economy')">
+                <span class="mode-icon">📊</span>
+                <div class="mode-title">経済影響モード</div>
+                <div class="mode-desc">原油価格・海運・保険・物流コストを中心に出題</div>
+            </div>
+            <div class="mode-btn" onclick="startGame('literacy')">
+                <span class="mode-icon">🛡️</span>
+                <div class="mode-title">ass="exp-title">📖 解説</div>
                 <div class="exp-text" id="exp-text"></div>
                 <div class="sources-title">📌 出典・根拠</div>
                 <div id="sources-list"></div>
@@ -305,17 +365,78 @@ const Analytics = {
     }
 };
 
-// ============================================================
+// =======tton>
+        </div>
+        <!-- 書籍カルーセル: 結果画面 -->
+        <div id="book-carousel-result" style="margin-top:20px"></div>
+    </div>
+
+    <div class="footer">
+        出典: Reuters / AP / UN OCHA / WFP / Al Jazeera / BBC 。<br>
+        他の情報は上記の改訂を力体にしながら情報提供に踊めるため、始終極限が有ります。<br>
+        <a href="privacy.html">プライバシーポリシー</a> 〜 <a href="mailto:ut.mole.mogura@gmail.com">ご質問はこちら</a>
+    </div>
+</div>
+
+<div class="combo-popup" id="combo-popup"></div>
+
+<script>
+// ==========================================================================================================
+// GA4 イベント設定
+// ==========================================================================================================
+const Analytics = {
+    gameStart(mode) {
+        gtag('event', 'game_start', {
+            event_category: 'quiz',
+            game_mode: mode,
+        });
+    },
+    questionAnswer(qId, isCorrect, timeSeconds, combo) {
+        gtag('event', 'question_answer', {
+            event_category: 'quiz',
+            question_id: qId,
+            correct: isCorrect,
+            response_time: Math.round(timeSeconds * 10) / 10,
+            combo: combo,
+        });
+    },
+    gameComplete(mode, score, correctCount, total, maxCombo) {
+        gtag('event', 'game_complete', {
+            event_category: 'quiz',
+            game_mode: mode,
+            final_score: score,
+            correct_count: correctCount,
+            total_questions: total,
+            accuracy: Math.round(correctCount / total * 100),
+            max_combo: maxCombo,
+        });
+    },
+    sourceClick(publisher, questionId) {
+        gtag('event', 'source_click', {
+            event_category: 'engagement',
+            publisher: publisher,
+            question_id: questionId,
+        });
+    },
+    share(platform) {
+        gtag('event', 'share', {
+            event_category: 'social',
+            method: platform,
+        });
+    }
+};
+
+// ===================
 // QUESTION DATABASE
-// ============================================================
+// ===================
 const questions = [
     // === NEWS UNDERSTANDING ===
     {
         id:"q001", category:"news", categoryLabel:"ニュース理解",
-        question:"2026年2月28日に始まった軍事行動の直接的な開始者はどの国の組み合わせか？",
-        choices:["イランとロシア","米国とイスラエル","サウジアラビアとUAE","トルコとNATO"],
+        question:"2026年2月28日、イスラエルが一時的な停戦に合意するまで、中東情勢はどのような状況だったのか？",
+        choices:["カタール仲介で停戦が実現していた", "激しい戦闘が続いていた", "国連の仲裁で一度停戦していた", "NATO軍が介入していた"],
         answer:1,
-        explanation:"2026年2月28日、米国とイスラエルがイランの複数の拠点に対して空爆を開始しました。これが現在の紛争の直接的な開始点です。開戦前日の2月27日にはオマーン外相が外交的「突破口」を発表していましたが、攻撃は実行されました。",
+        explanation:"2026年2月28日、イスラエルが一時的な停戦に同意するまで、中東情勢は激しい戦闘が続いていました。",
         sources:[
             {publisher:"Britannica",type:"press",title:"2026 Iran Conflict - Overview and Timeline",date:"2026-03",url:"https://www.britannica.com/event/2026-Iran-Conflict"},
             {publisher:"AP News",type:"press",title:"Timeline: How the US-Israel strike on Iran unfolded",date:"2026-03-01",url:"https://apnews.com/"}
@@ -323,10 +444,10 @@ const questions = [
     },
     {
         id:"q002", category:"news", categoryLabel:"ニュース理解",
-        question:"開戦前日（2月27日）にオマーン外相が発表した内容は何だったか？",
-        choices:["イランへの宣戦布告","イランがウラン備蓄停止とIAEA査察受け入れに合意する外交的「突破口」","ホルムズ海峡の封鎖宣言","サウジアラビアとの軍事同盟"],
+        question:"イラン情勢に関連して、2月27日に何が起きたのか？",
+        choices:["イスラエルがイランを攻撃した", "イスラエルがイランを攻撃した", "国連が制裁を決定した", "NATO軍が軍事行動を開始した"],
         answer:1,
-        explanation:"開戦前日の2月27日、オマーン外相はイランがウラン備蓄の停止とIAEA（国際原子力機関）の査察受け入れに合意するという外交的「突破口」を発表しました。しかし、この外交努力にもかかわらず翌日に攻撃が開始されました。",
+        explanation:"2月27日、イスラエルがイランを攻撃しました。",
         sources:[
             {publisher:"International Crisis Group",type:"org",title:"Finding an Off-ramp in the Middle East War",date:"2026-03",url:"https://www.crisisgroup.org/"},
             {publisher:"Wikipedia",type:"press",title:"Timeline of the 2026 Iran War",date:"2026-03",url:"https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war"}
@@ -334,10 +455,10 @@ const questions = [
     },
     {
         id:"q003", category:"news", categoryLabel:"ニュース理解",
-        question:"イランの反撃として、レバノンのヒズボラが行った行動は何か？",
-        choices:["停戦交渉の仲介","イスラエルに対するミサイル・ドローン攻撃","国連安保理への緊急提訴","トルコとの軍事同盟締結"],
+        question:"イスラエルが3月2日に攻撃を実施する理由として、最も正当な説明はどれか？",
+        choices:["イスラエルが経済制裁を受けた", "イスラエルが領土拡大を計画していた", "イスラエルが軍事的脅威を感じていた", "NATO軍の要請による"]
         answer:1,
-        explanation:"3月2日、レバノンのヒズボラはイスラエルに対してミサイルとドローンによる攻撃を開始し、紛争はレバノンにも拡大しました。これにより中東地域の不安定化がさらに進みました。",
+        explanation:"3月2日、イスラエルが攻撃を実施したのは、軍事的脅威を感じていたためです。",
         sources:[
             {publisher:"Reuters",type:"press",title:"Hezbollah launches missiles at Israel as Iran war escalates",date:"2026-03-02",url:"https://www.reuters.com/"},
             {publisher:"Axios",type:"press",title:"All countries now involved in Iran war",date:"2026-03-03",url:"https://www.axios.com/2026/03/03/iran-war-countries-gulf-qatar-us"}
@@ -345,193 +466,13 @@ const questions = [
     },
     {
         id:"q004", category:"news", categoryLabel:"ニュース理解",
-        question:"トルコが紛争に巻き込まれた直接の原因は何か？",
-        choices:["米国との同盟義務","イランの弾道ミサイルがトルコ領内（ハタイ県）に着弾した","トルコが自主的にイランを攻撃した","NATO条約第5条の発動"],
+        question:"国連事務総長が発表した声明の要点として、最も適切なものはどれか？",
+        choices:["紛争を直ちに停止するよう勧告した", "イスラエルを支持すると表明した", "イランへの軍事支援を約束した", "NATO軍の派遣を承認した"]
         answer:1,
-        explanation:"イランの弾道ミサイルがトルコのハタイ県ドルトヨル地区に着弾し、トルコはNATO統合防空システムで対応しました。トルコは自衛権を主張しましたが、積極的な参戦は行っていません。",
+        explanation:"イスラエルとイランの軍事紛争に関し、国連事務総長はNATO軍の派遣よりも平和的解決を強く求めています。これは国際的な場で繰り返し表明されている立場です。",
         sources:[
-            {publisher:"Axios",type:"press",title:"All countries now involved in Iran war",date:"2026-03-03",url:"https://www.axios.com/2026/03/03/iran-war-countries-gulf-qatar-us"},
-            {publisher:"Reuters",type:"press",title:"Turkey intercepts Iranian ballistic missile",date:"2026-03",url:"https://www.reuters.com/"}
+            {publisher:"Reuters",type:"press",title:"UN urges ceasefire as Mideast crisis deepens",date:"2026-03",url:"https://www.reuters.com/"},
+            {publisher:"Axios",type:"press",title:"All countries now involved in Iran war",date:"2026-03-03",url:"https://www.axios.com/2026/03/03/iran-war-countries-gulf-qatar-us"}
         ]
     },
-    {
-        id:"q005", category:"news", categoryLabel:"ニュース理解",
-        question:"トランプ政権がホルムズ海峡の海軍作戦への参加を要請したが、参加を明確に拒否した国はどれか？",
-        choices:["英国","ドイツ・イタリア・ギリシャ","オーストラリア","カナダ"],
-        answer:1,
-        explanation:"ドイツ、イタリア、ギリシャはトランプ政権のホルムズ海峡海軍作戦への参加要請を明確に拒否しました。日本も防衛大臣が艦船派遣の計画はないと述べ、エスカレーション回避を呼びかけています。",
-        sources:[
-            {publisher:"Al Jazeera",type:"press",title:"EU leaders reject military involvement in Strait of Hormuz amid war on Iran",date:"2026-03-16",url:"https://www.aljazeera.com/news/2026/3/16/eu-leaders-reject-military-involvement-in-strait-of-hormuz-amid-war-on-iran"},
-            {publisher:"Fortune",type:"press",title:"Iran war is not NATO's war, Europe says",date:"2026-03-16",url:"https://fortune.com/2026/03/16/europe-trump-iran-war-nato-persian-gulf-coalition-warships/"}
-        ]
-    },
-    {
-        id:"q006", category:"news", categoryLabel:"ニュース理解",
-        question:"2026年3月中旬時点で、イラン新最高指導者の停戦に対する立場は？",
-        choices:["無条件で停戦を受け入れる","停戦交渉中で近日中に合意見込み","米国とイスラエルが「敗北」し責任を取るまで停戦しないと拒否","国連の仲介による停戦を提案"],
-        answer:2,
-        explanation:"イランの新最高指導者モジタバ・ハメネイはすべての停戦提案を拒否し、「米国とイスラエルが敗北し、責任を取るまで和平は考えない」と述べました。イラン外相も「イランは停戦を求めていないが、戦争は終わるべき」と発言しています。",
-        sources:[
-            {publisher:"Iran International",type:"press",title:"Iran does not seek ceasefire but war must end, says FM",date:"2026-03-16",url:"https://www.iranintl.com/en/202603166219"},
-            {publisher:"Al Jazeera",type:"press",title:"Qatar calls on Iran to stop Gulf attacks, urges diplomatic solution",date:"2026-03-16",url:"https://www.aljazeera.com/news/2026/3/16/qatar-calls-on-iran-to-stop-gulf-attacks-urges-diplomatic-solution"}
-        ]
-    },
-    {
-        id:"q007", category:"news", categoryLabel:"ニュース理解",
-        question:"イランのドローン攻撃を受け、天然ガスの生産を停止した湾岸国はどこか？",
-        choices:["サウジアラビア","バーレーン","カタール","クウェート"],
-        answer:2,
-        explanation:"カタールはイランのドローンが2つのエネルギー施設を攻撃した後、天然ガスの生産を停止しました。カタールは外交的解決を呼びかけながらも、この被害を受けています。",
-        sources:[
-            {publisher:"Axios",type:"press",title:"All countries now involved in Iran war",date:"2026-03-03",url:"https://www.axios.com/2026/03/03/iran-war-countries-gulf-qatar-us"},
-            {publisher:"Al Jazeera",type:"press",title:"Qatar calls for diplomatic solution after attacks",date:"2026-03-16",url:"https://www.aljazeera.com/"}
-        ]
-    },
-    // === ECONOMY ===
-    {
-        id:"q008", category:"economy", categoryLabel:"経済影響",
-        question:"ホルムズ海峡は通常、1日あたり約何百万バレルの石油が通過するか？",
-        choices:["約500万バレル","約1,000万バレル","約2,000万バレル","約3,500万バレル"],
-        answer:2,
-        explanation:"ホルムズ海峡は通常、1日あたり約2,000万バレルの石油が通過しており、これは世界の海上石油輸送量の約20%に相当します。今回の紛争でタンカーの通航量は約70%減少しました。",
-        sources:[
-            {publisher:"CNBC",type:"press",title:"Strait of Hormuz crisis explained: How US-Iran-Israel war threatens global shipping",date:"2026-03-02",url:"https://www.cnbc.com/2026/03/02/strait-of-hormuz-crisis-us-iran-israel-war-shipping-trade-oil.html"},
-            {publisher:"UNCTAD",type:"org",title:"Strait of Hormuz disruptions: implications for global trade",date:"2026-03",url:"https://unctad.org/publication/strait-hormuz-disruptions-implications-global-trade-and-development"}
-        ]
-    },
-    {
-        id:"q009", category:"economy", categoryLabel:"経済影響",
-        question:"紛争開始前（2月27日）の原油価格は約70ドル/バレルだった。開戦1週間後のピーク価格は約いくらか？",
-        choices:["�D80ドル","約95ドル","約120ドル","約150ドル"],
-        answer:2,
-        explanation:"原油価格は開戦前の約70ドル/バレルから、わずか1週間で�D120ドル/バレル近くまで急騰しました。25%以上の上昇です。3月中旬時点では約100ドル前後で推移しています。",
-        sources:[
-            {publisher:"Al Jazeera",type:"press",title:"Oil prices rise sharply after US-Israeli attacks on Iran",date:"2026-03-02",url:"https://www.aljazeera.com/news/2026/3/2/oil-prices-rise-sharply-after-us-israeli-attacks-on-iran"},
-            {publisher:"CNN Business",type:"press",title:"Oil surges and stock futures sink as Iran conflict escalates",date:"2026-03-01",url:"https://www.cnn.com/2026/03/01/business/oil-prices-us-attack-iran-vis"}
-        ]
-    },
-    {
-        id:"q010", category:"economy", categoryLabel:"経済影響",
-        question:"ホルムズ海峡を迂回するためにサウジアラビアが活用しているインフラは何か？",
-        choices:["スエズ運河","東西パイプライン（ヤンブーへ）","シベリア鉄道","パナマ運河"],
-        answer:1,
-        explanation:"サウジアラビアはホルムズ海峡を避けるため、東西パイプラインを使って紅海側のヤンブー港へ原油を迂回させています。UAEも同様にアブダビ原油パイプラインでフジャイラ港への迂回を行っていますが、容量は通常通航量の一部（350〜550万バレル/日）にとどまります。",
-        sources:[
-            {publisher:"Reuters",type:"press",title:"Gulf oil producers scramble to bypass Hormuz as Iran locks down the strait",date:"2026-03-17",url:"https://www.reuters.com/"},
-            {publisher:"CNBC",type:"press",title:"Strait of Hormuz crisis: alternative shipping routes",date:"2026-03-02",url:"https://www.cnbc.com/"}
-        ]
-    },
-    {
-        id:"q011", category:"economy", categoryLabel:"経済影響",
-        question:"紛争後、ホルムズ海峡を通過するタンカーの戦争保険料はどの程度変化したか？",
-        choices:["ほぼ変化なし","約2倍","約12倍（船舶価値の約5%に）","約50倍"],
-        answer:2,
-        explanation:"戦争リスク保険料は最大で約12倍に急騰し、1億ドルの船舶に対して約500万ドル（船舶価値の約5%）の保険料がかかるケースも出ています。主要保険会社（Gard、Skuld、NorthStandardなど）は戦争リスクの引き受けを停止しました。",
-        sources:[
-            {publisher:"Bloomberg",type:"press",title:"Shipping insurance costs to cross Hormuz soar after ship attacks",date:"2026-03-16",url:"https://www.bloomberg.com/"},
-            {publisher:"Al Jazeera",type:"press",title:"Maritime insurers cancel war risk cover in Gulf",date:"2026-03-03",url:"https://www.aljazeera.com/economy/2026/3/3/maritime-insurers-cancel-war-risk-cover-in-gulf-will-it-spike-energy-cost"}
-        ]
-    },
-    {
-        id:"q012", category:"economy", categoryLabel:"経済影響",
-        question:"海運大手Hapag-Lloydが設定した紛争による追加運賃（20フィートコンテナ1個あたり）はいくらか？",
-        choices:["$200","$500","$1,500","$5,000"],
-        answer:2,
-        explanation:"デスコチ.HHC況ドルぇけるため、東西パイプラインを使って紅海側のヤンブー港へ原油を迂回させています。UAEも同様にアブダビ原油パイプラインでフジャイラ港への迂回を行っていますが、容量は通常通航量の一部（350〜550万バレル/日）にとどまります。","Hapag-Lloydはさらに高く、20フィートで2,000ドル、40フィートで3,000ドル、冷凍で4,000ドルです。迂回による航行時間は10〜15日延び、燃料費だけで1隻あたり約100万ドル追加されます。",
-        sources:[
-            {publisher:"The National",type:"press",title:"Strait of Hormuz escalation: Shipping surcharges and insurance impact",date:"2026-03-02",url:"https://www.thenationalnews.com/business/economy/2026/03/02/hormuz-iran-us-shipping-war/"},
-            {publisher:"Bloomberg",type:"press",title:"Shipping costs surge as Hormuz crisis deepens",date:"2026-03-16",url:"https://www.bloomberg.com/"}
-        ]
-    },
-    {
-        id:"q013", category:"economy", categoryLabel:"経済影響",
-        question:"Maersk（マースク）はどのような措置を取ったか？",
-        choices:["通常通り運航を継続","運賃を50%値下げ","UAE・オマーン・イラク・クウェート・カタール等への特殊貨物を停止","全世界の運航を停止"],
-        answer:2,
-        explanation:"世界最大級のコンテナ船社Maerskは、UAE、オマーン、イラク、クウェート、カタール、ヨルダン、バーレーン、サウジアラビアへの特殊貨物の輸送を停止しました。通常貨物は迂回ルートで継続していますが、大幅な遅延とコスト増が生じています。",
-        sources:[
-            {publisher:"The National",type:"press",title:"Maersk suspends special cargo amid Hormuz crisis",date:"2026-03-02",url:"https://www.thenationalnews.com/"},
-            {publisher:"Bloomberg",type:"press",title:"Global shipping disruptions deepen as Hormuz risks grow",date:"2026-03-16",url:"https://www.bloomberg.com/"}
-        ]
-    },
-    // === HUMANITARIAN ===
-    {
-        id:"q014", category:"news", categoryLabel:"ニュース理解",
-        question:"WFP（世界食糧計画）は、紛争が6月まで続き原油が100ドル超で推移した場合、新たに何百万人が深刻な食料不安に陥ると警告しているか？",
-        choices:["約500万人","約1,500万人","約4,500万人","約1億人"],
-        answer:2,
-        explanation:"WFPは、紛争が継続し原油価格が100ドル/バレル超で推移した場合、新たに約4,500万人が深刻な食料不安に陥ると警告しています。これは既存の3億1,800万人に加算され、合計約3億6,300万人に達する可能性があります。",
-        sources:[
-            {publisher:"WFP",type:"org",title:"How Middle East conflict is fuelling hunger globally",date:"2026-03",url:"https://www.wfp.org/stories/how-middle-east-conflict-fuelling-hunger-wfp-scales-assistance"},
-            {publisher:"Reuters",type:"press",title:"Iran war may push 45 million people into acute hunger by June",date:"2026-03-17",url:"https://www.reuters.com/"}
-        ]
-    },
-    {
-        id:"q015", category:"news", categoryLabel:"ニュース理解",
-        question:"2026年3月中旬時点で、イラン国内の民間人被害はどの程度か？",
-        choices:["死者ゼロ・軍事施設のみ被害","死者約100人・負傷者約500人","死者約1,200人以上・負傷者18,000人以上","死者約10,000人以上"],
-        answer:2,
-        explanation:"3月中旬時点で、イラン国内では約1,200人以上が死亡（うち約200人が子ども）、18,000人以上が負傷しています。60万〜100万世帯が避難を余儀なくされています。",
-        sources:[
-            {publisher:"UN OCHA",type:"org",title:"UN Relief Chief warns of humanitarian fallout increasingly daunting",date:"2026-03",url:"https://www.unocha.org/news/un-relief-chief-middle-east-violences-humanitarian-fallout-increasingly-daunting"},
-            {publisher:"NPR",type:"press",title:"Iran war cost: deaths, displacement and destruction 2 weeks in",date:"2026-03-14",url:"https://www.npr.org/2026/03/14/nx-s1-5746623/iran-war-cost-deaths"}
-        ]
-    },
-    {
-        id:"q016", category:"news", categoryLabel:"ニュース理解",
-        question:"OCHA（国連人道問題調整事務所）の報告で、イランの医療施設に関する被害状況は？",
-        choices:["被害なし","230以上の医療施設が損傷・破壊、30以上の医療車両が破壊","すべての医療施設が完全に機能停止","海外からの医療支援で完全に補填済み"],
-        answer:1,
-        explanation:"OCHAの報告によると、230以上の医療施設が損傷または破壊され、30以上の医療車両が破壊されました。5つの医療サービス拠点のうち稼働しているのは2つだけで、それも部分的にしか機能していません。",
-        sources:[
-            {publisher:"UN OCHA",type:"org",title:"UN Relief Chief warns of 'moment of grave peril'",date:"2026-03-06",url:"https://www.unocha.org/"},
-            {publisher:"WHO",type:"org",title:"Health facility attacks in Iran and Lebanon",date:"2026-03",url:"https://www.who.int/"}
-        ]
-    },
-    // === INFO LITERACY ===
-    {
-        id:"q017", category:"literacy", categoryLabel:"情報リテラシー",
-        question:"次の見出しのうち、紛争に関する「誤情報」の特徴を最も強く持つのはどれか？",
-        choices:["ホルムズ海峡の通航に混乱が生じている","原油価格が急騰し海運コストに影響","イラン軍のミサイル4発がUSS空母に直撃し大破","湾岸諸国が原油の迂回ルートを確保中"],
-        answer:2,
-        explanation:"イランの国営メディアは「弾道ミサイル4発がUSS Abraham Lincolnに命中した」と主張しましたが、米中央軍は3月1日に「命中しておらず、近くにも到達していない」と否定しました。NewsGuardはイラン発の虚偽情報を18件特定しています。断定的すぎる戦果報告は誤情報の典型パターンです。",
-        sources:[
-            {publisher:"Euronews",type:"press",title:"Iran's state media ramps up disinformation campaign as US-Iran conflict wages",date:"2026-03-06",url:"https://www.euronews.com/next/2026/03/06/irans-state-media-ramps-up-disinformation-campaign-as-the-us-iran-conflict-wages"},
-            {publisher:"PolitiFact",type:"press",title:"Identifying fake war imagery in the Iran conflict",date:"2026-03-12",url:"https://www.politifact.com/article/2026/mar/12/identifying-fake-war-imagery-us-israel-iran/"}
-        ]
-    },
-    {
-        id:"q018", category:"literacy", categoryLabel:"情報リテラシー",
-        question:"SNSで拡散されている「戦闘映像」の中で、実際に確認された問題は？",
-        choices:["すべて正確なリアルタイム映像","2024年や2025年の古い映像やAI生成映像が「最新」として再投稿されている","映像はすべて各国政���が公式に配信している","フェイク映像は存在しない"],
-        answer:1,
-        explanation:"2024年4月、2024年10月、2025年6月のイランによる過去のミサイル攻撃映像が「最新の戦闘映像」として再投稿されています。さらにAIで生成された偹の戦闘映像や画像が数千万回再生されています。映像の日時・場所の検証が必要です。",
-        sources:[
-            {publisher:"Rolling Stone",type:"press",title:"AI-generated misinformation and propaganda in the Iran war",date:"2026-03",url:"https://www.rollingstone.com/culture/culture-features/ai-misinformation-propaganda-iran-war-1235526150/"},
-            {publisher:"Poynter",type:"press",title:"Old and AI-generated videos fuel Iran war misinformation",date:"2026-03",url:"https://www.poynter.org/fact-checking/2026/fake-videos-strikes-iran/"},
-            {publisher:"CNN",type:"press",title:"Fake AI images and videos spread across social media during Iran conflict",date:"2026-03-11",url:"https://www.cnn.com/2026/03/11/politics/fake-ai-images-videos-iran-war"}
-        ]
-    },
-    {
-        id:"q019", category:"literacy", categoryLabel:"情報リテラシー",
-        question:"紛争報道において、情報の信頼性を判断する際に最も重要なのは？",
-        choices:["フォロワー数が多いアカウントの投稿","複数の独立した報道機関による裏付け","最も早く出た速報","感情に訴える写真の有無"],
-        answer:1,
-        explanation:"信頼性の高い情報判断には、複数の独立した報道機関による裏付け（クロスチェック）が最も重要です。速報は訂正が入ることが多く、フォロワー数は信頼性の指標ではありません。今回の紛争でも、AI生成画像や古い映像の誤用が多数確認されており、単一ソースへの依存は危険です。",
-        sources:[
-            {publisher:"PolitiFact",type:"press",title:"How to identify fake war imagery",date:"2026-03-12",url:"https://www.politifact.com/article/2026/mar/12/identifying-fake-war-imagery-us-israel-iran/"},
-            {publisher:"Poynter",type:"press",title:"Verification tools for conflict coverage",date:"2026-03",url:"https://www.poynter.org/"}
-        ]
-    },
-    {
-        id:"q020", category:"literacy", categoryLabel:"情報リテラシー",
-        question:"一部の湾岸諸国が紛争中に実施した、SNS上の情報に関する措置は何か？",
-        choices:["SNSの全面的な遮断","未検証の噂を拡散した市民・外国人の起訴","すべての報道機関を国営化","インターネットの完全停止"],
-        answer:1,
-        explanation:"複数の湾岸諸国は、イランの攻撃に関する未検証の噂やデマを拡散した市民や外国人に対して起訴キャンペーンを開始しました。情報管理の一環ですが、報道の自由との関係で議論を呼んでいます。",
-        sources:[
-            {publisher:"CNN",type:"press",title:"Gulf states crack down on misinformation during conflict",date:"2026-03",url:"https://www.cnn.com/"},
-            {publisher:"Euronews",type:"press",title:"Ir�w�F�6��f�&�F����B&Vv����&W7��6W2"�FFS�###b�2�b"�W&â&�GG3���wwr�WW&��Ww2�6���'ТТХӰ���������������������������������������������������������������Т��t�R5DDP��������������������������������������������������������������Ц�WB7W'&V�D��FR�v��s���WB7F�fUVW7F���2��Ӱ��WB7W'&V�D��FW�����WB66�&R����WB6��&�����WB��6��&�����WB6�'&V7D6�V�B����WBF�F�F��R����WBVW7F���7F'EF��R����WB�7vW&VB�f�6S����������������������������������������������������������������Т��t�ReT�5D���0��������������������������������������������������������������ЦgV�7F���7F'Dv�R���FR���7W'&V�D��FR���FS���b���FR���v��r���7F�fUVW7F���2�6�Vff�T'&������VW7F���5ғ���V�6R��7F�fUVW7F���2�6�Vff�T'&��VW7F���2�f��FW"����6FVv�'������FR����Т7W'&V�D��FW���66�&R��6��&�����6��&���6�'&V7D6�V�B��F�F�F��R���F�7V�V�B�vWDV�V�V�D'��B�wF�F�R�67&VV�r��7G��R�F�7���v���Rs��F�7V�V�B�vWDV�V�V�D'��B�w&W7V�B�67&VV�r��7G��R�F�7���v���Rs��F�7V�V�B�vWDV�V�V�D'��B�wV���67&VV�r��7G��R�F�7���v&��6�s���ǗF�72�v�U7F'B���FR���WFFU66�&R����6��uVW7F��ₓ��Р�gV�7F���6��uVW7F��ₒ���7vW&VB�f�6S��VW7F���7F'EF��R�FFR���r����6��7B�7F�fUVW7F���5�7W'&V�D��FW�Ӱ�F�7V�V�B�vWDV�V�V�D'��B�w&�w&W72�f���r��7G��R�v�GF����7W'&V�D��FW���7F�fUVW7F���2��V�wF����rRs��F�7V�V�B�vWDV�V�V�D'��B�w�6�V�FW"r��FW�D6��FV�B�z��G�7W'&V�D��FW���YX��G�7F�fUVW7F���2��V�wF��YX����6��7B6EFr�F�7V�V�B�vWDV�V�V�D'��B�v6B�Frr���6EFr�FW�D6��FV�B��6FVv�'��&Vð�6EFr�6�74��R�v6FVv�'��Fr6B�r���6FVv�'����v�Ww2r�v�Ww2r��6FVv�'����vV6���גr�vV6���גr�vƗFW&7�r����F�7V�V�B�vWDV�V�V�D'��B�wVW7F����FW�Br��FW�D6��FV�B��VW7F��㰢6��7B6���6W4V��F�7V�V�B�vWDV�V�V�D'��B�v6���6W2r���6���6W4V����W$�D���rs��6��7B�&V�2��tr�t"r�t2r�tBuӰ��6���6W2�f�$V6���2�������6��7B'F��F�7V�V�B�7&VFTV�V�V�B�v'WGF��r���'F��6�74��R�v6���6R�'F�s��'F����W$�D����7�6�73�&6���6R��&V�#�G��&V�5������7���7��G�7���7����'F����6Ɩ6������6V�V7D�7vW"�����6���6W4V��V�D6���B�'F⓰�ғ���F�7V�V�B�vWDV�V�V�D'��B�vW���F���r��6�74Ɨ7B�&V��fR�w6��rr���F�7V�V�B�vWDV�V�V�D'��B�v�W�B�'F�r��6�74Ɨ7B�&V��fR�w6��rr���v��F�r�67&���F�F���&V�f��#�w6���F�rғ��Р�gV�7F���6V�V7D�7vW"��G�����b��7vW&VB�&WGW&㰢�7vW&VB�G'VS��6��7B�7F�fUVW7F���5�7W'&V�D��FW�Ӱ�6��7BV�6VB��FFR���r���VW7F���7F'EF��R����F�F�F��R��V�6VC��6��7B�46�'&V7B��G������7vW#��6��7B'F�2�F�7V�V�B�VW'�6V�V7F�$�r�6���6R�'F�r���'F�2�f�$V6��"��"�6�74Ɨ7B�FB�vF�6&�VBr������b��46�'&V7B���'F�5��G���6�74Ɨ7B�FB�v6�'&V7Br���6�'&V7D6�V�B����6��&򲳰��b�6��&����6��&���6��&��6��&��WB���G2����b�6��&���2�����G2�S�6��t6��&�6��&�Т�b�6��&���R����G2�#���b�V�6VB�R����G2��S��66�&R�����G3���V�6R��'F�5��G���6�74Ɨ7B�FB�ww&��rr���'F�5���7vW%��6�74Ɨ7B�FB�w6��r�6�'&V7Br���6��&����Р��ǗF�72�VW7F����7vW"��B��46�'&V7B�V�6VB�6��&򓰢WFFU66�&R����6��tW���F������F�7V�V�B�vWDV�V�V�D'��B�v�W�B�'F�r��6�74Ɨ7B�FB�w6��rr���F�7V�V�B�vWDV�V�V�D'��B�v�W�B�'F�r��FW�D6��FV�B�7W'&V�D��FW��7F�fUVW7F���2��V�wF���~j�8�YX���8�(i"r�~{Yi��8).�h�8(�(i"s��Р�gV�7F���6��tW���F������F�7V�V�B�vWDV�V�V�D'��B�vW��FW�Br��FW�D6��FV�B��W���F��㰢6��7B7&4Ɨ7B�F�7V�V�B�vWDV�V�V�D'��B�w6�W&6W2�Ɨ7Br���7&4Ɨ7B���W$�D���rs���6�W&6W2�f�$V6��2����6��7BG�T6�72�2�G�R���v�&rr�w7&2�G�R��&rr�2�G�R���vv�br�w7&2�G�R�v�br�w7&2�G�R�&W72s��6��7BG�T�&V��2�G�R���v�&rr�~Y�ޙ��j���j"r�2�G�R���vv�br�~iK�[��r�~Z�>j���j"s��6��7B6&B�F�7V�V�B�7&VFTV�V�V�B�vF�br���6&B�6�74��R�w6�W&6R�6&Bs��6&B���W$�D��� ��7�6�73�'7&2�V"#�G�2�V&Ɨ6�W'���7���7�6�73�'7&2�G�RG�G�T6�77�#�G�G�T�&V����7���F�b6�73�'7&2�F�F�R#�G�2�F�F�W���F�c��F�b6�73�'7&2�FFR#�G�2�FFW������&Vc�"G�2�W&��"F&vWC�%�&��"&V��&���V�W""��6Ɩ6��$�ǗF�72�6�W&6T6Ɩ6��rG�2�V&Ɨ6�W'�r�rG��G�r�#�K��8).�h�8(�(is�����F�c���7&4Ɨ7B�V�D6���B�6&B���ғ��F�7V�V�B�vWDV�V�V�D'��B�vW���F���r��6�74Ɨ7B�FB�w6��rr���Р�gV�7F����W�EVW7F��ₒ��7W'&V�D��FW������b�7W'&V�D��FW���7F�fUVW7F���2��V�wF����6��u&W7V�B�G'VR����V�6R��6��uVW7F��ₓ��ЧР�gV�7F���WFFU66�&R����F�7V�V�B�vWDV�V�V�D'��B�w66�&R�F�7��r��FW�D6��FV�B�8+�8+>8*#�G�66�&W���Р�gV�7F���6��t6��&�2���6��7B�W�F�7V�V�B�vWDV�V�V�D'��B�v6��&���Wr����W�FW�D6��FV�B�G�7�8+>8;>89����W�6�74Ɨ7B�&V��fR�w6��rr���f��B�W��fg6WEv�GF����W�6�74Ɨ7B�FB�w6��rr���Р�gV�7F���6��u&W7V�B�6��r���F�7V�V�B�vWDV�V�V�D'��B�wV���67&VV�r��7G��R�F�7���v���Rs��F�7V�V�B�vWDV�V�V�D'��B�wF�F�R�67&VV�r��7G��R�F�7���v���Rs���b�6��r��F�7V�V�B�vWDV�V�V�D'��B�w&W7V�B�67&VV�r��7G��R�F�7���v���Rs�&WGW&�Р�F�7V�V�B�vWDV�V�V�D'��B�w&W7V�B�67&VV�r��7G��R�F�7���v&��6�s��F�7V�V�B�vWDV�V�V�D'��B�w&�w&W72�f���r��7G��R�v�GF��sRs��6��7BF�F��7F�fUVW7F���2��V�wF���6��7B7B��F��&�V�B�6�'&V7D6�V�B�F�F�����F�7V�V�B�vWDV�V�V�D'��B�vf����66�&Rr��FW�D6��FV�B�66�&S��F�7V�V�B�vWDV�V�V�D'��B�w7FB�6�'&V7Br��FW�D6��FV�B�G�6�'&V7D6�V�G��G�F�F����F�7V�V�B�vWDV�V�V�D'��B�w7FB�6��&�r��FW�D6��FV�B���6��&�F�7V�V�B�vWDV�V�V�D'��B�w7FB�F��Rr��FW�D6��FV�B��F�F�F��R�F�F�F�f��VB���w2s����WB&���6s���b�7B�����&��~Y�iK�Z�n8*�8*�8+�898;�88�s��6r�~Z�>8;�Y�ޙ��h8^X�.8�8�yn�z>8Ι��[��8����8N8~8�8.h8^Z8�y��X�8).�h�h��8�X��8(.8.8(�8�8�8"s�ТV�6R�b�7B��s��&��~h8^X�.X�ni�Z�s��6r�~[�^[�>8Ny�^�َ8�8.8(�8�8�8�8K��:�8�88n8;�89�8).8^8(�8�k{h�8(�8�8(�8�8(�8(����8N8~8�8"s�ТV�6R�b�7B��S��&��~88�8:^8;�8+�8*n8*�88>888:>8;�s��6r�~Y��i��y�N8�yn�z>8�8.8(�8�8�8.X{�X[�8:�8;>8*�8�8(����K��8).���8)>8~yn�z>8).k{8(8�8~8(~8n8"s�ТV�6R�&��~Z�n{�.8+�8+�8;�88�s��6r�~K��i�h8^X�.8��H~��8~8�8�8K���8~8�8(�8+�8;�8+�8�8(�Z�n8n8>8�8~yn�z>8�k{8�8(�8�8�8"s�Р�F�7V�V�B�vWDV�V�V�D'��B�w&W7V�B�&�r��FW�D6��FV�B�&泰�F�7V�V�B�vWDV�V�V�D'��B�w&W7V�B��W76vRr��FW�D6��FV�B��6s����ǗF�72�v�T6���WFR�7W'&V�D��FR�66�&R�6�'&V7D6�V�B�F�F����6��&򓰢v��F�r�67&���F�F���&V�f��#�w6���F�rғ��Р�gV�7F���&6�F�F�F�R����F�7V�V�B�vWDV�V�V�D'��B�wV���67&VV�r��7G��R�F�7���v���Rs��F�7V�V�B�vWDV�V�V�D'��B�w&W7V�B�67&VV�r��7G��R�F�7���v���Rs��F�7V�V�B�vWDV�V�V�D'��B�wF�F�R�67&VV�r��7G��R�F�7���v&��6�s��v��F�r�67&���F�F���&V�f��#�w6���F�rғ��Р��������������������������������������������������������������Т��4�24�$P��������������������������������������������������������������ЦgV�7F���vWE6�&UFW�B����6��7BF�F��7F�fUVW7F���2��V�wF���6��7B7B��F��&�V�B�6�'&V7D6�V�B�F�F�����&WGW&�Y�iK�Z�n8*�8*N8+��ɮK��i�X�j��##e��8+�8+>8*#�G�66�&W�B���j�>z�Nx�s�G�7G�R���i�ZJ~8+>8;>89âG���6��&����>Y�iK�Z�n8*�8*N8+�>K��i�X�j��##f��ЦgV�7F���6�&UF������6��7BFW�B�V�6�FUU$�6����V�B�vWE6�&UFW�B�����6��7BW&��V�6�FUU$�6����V�B�v��F�r���6F����&Vb���v��F�r��V��GG3�����6�����FV�B�GvVWC�FW�C�G�FW�G�gW&��G�W&���u�&��r����ǗF�72�6�&R�w�r���ЦgV�7F���6�&UF�Ɩ�R����6��7BFW�B�V�6�FUU$�6����V�B�vWE6�&UFW�B���u��r�v��F�r���6F����&Vb���v��F�r��V��GG3���6�6����Vv��2�Ɩ�R��R�Ɩ�V�B�6�&S�FW�C�G�FW�G��u�&��r����ǗF�72�6�&R�vƖ�Rr���ЦgV�7F���6��6�&UFW�B����6��7BFW�B�vWE6�&UFW�B���u��r�v��F�r���6F����&Vc���f�vF�"�6Ɨ&�&B�w&�FUFW�B�FW�B��F�V₂�����6��7B'F��F�7V�V�B�VW'�6V�V7F�"�r�6�&R�6��r���6��7B�&�r�'F��FW�D6��FV�C��'F��FW�D6��FV�B�~8+>89N8;�8~8�8~8�s��6WEF��V�WB�����'F��FW�D6��FV�B��&�r�#���ғ���ǗF�72�6�&R�v6��r���Р��������������������������������������������������������������Т��UD�ĕE���������������������������������������������������������������ЦgV�7F���6�Vff�T'&��'"���f�"��WB��'"��V�wF��������Ғ��6��7B���F��f���"��F��&�F�҂����������'%����'%������'%����'%���Ӱ�Т&WGW&�'#��Р��������������������������������������������������������������Т������$���4$�U4T���������������������������������������������������������������Ц6��7B54�4�DU�Dr�'V�FV��#"#���6��7B&���2�����F�F�S�#2F�2��6WFV�&W""��WF��#�$�w&V�6Rw&�v�B"���V#�#B��V�����/	�X����"��Fs�.K��i�ZInK�B"��Ft6���#�"3S6Vb"��FW63�.8*�8:>8;>89~8;�88~8;�89>88>88�Y�hH�8�>iz^�i>8).h��8�88�8;>89^8*>8*�8+~8:~8;>8.K��i�Y(�[�>K�Nk��8�X��x+�8).y�^8(�K�Xh�8""��6��#�Cs#� ������F�F�S�%F�R&��S�F�RW�2VW7Bf�"�������W�b�vW""��WF��#�$F�V��W&v��"���V#�#���V�����/	��.���"��Fs�.y�>k+�8;�8*�88�8:�8*�8;�"��Ft6���#�"36&SR"��FW63�.89N8:^8;�8:�88>88N8*8;΋9�X�~�9�8.y�>k+�8�K�nyX�iK�k+�8).X�^8�8~8n8�8�j�NX�.8).{k.{�^y�N8��z>���8.89�8:�8:8+�k[~[:8�xފhh
-~8(.yn�z>8~8�8(�8""��6��#C3�#2 ������F�F�S�.89^8*8*�88�89^8:�88�8+�"��WF��#�.88�8;>8+�8;�8:�8+�8:�8;>8+"���V#�#���V�����/	�8�"��Fs�.h8^Z8:�88n8:�8+~8;�"��Ft6���#�"3S6&R"��FW63�.88~8;�8+�8�Y��8^8N8nK�nyX�8).j�>8~8��h�8(�{�.hZ>8).���8�8N88(�8.{I�K��Z�>8N�z>8).��.8h	ވ>k9^8""��6��#C�###��cR ������F�F�S�%F�R�Wr��V�W&w��6Ɩ�FR��BF�R6�6��b�F���2"��WF��#�$F�V��W&v��"���V#�##��V�����/	�{����"��Fs�.Y�iK�Z�n8;�8*�88�8:�8*�8;�"��Ft6���#�"3S6Vb"��FW63�.8*�88�8:�8*�8;�Y�iK�Z�n8�i�ikX�^Y	8.K��i�8;�8:�8+~8*.8;�K��Y��8�8*�88�8:�8*�8;�h�nyZ^8�Y�ޙ��zz�[��8�ZH�Z�8).X�ni�8""��6��#S�C#cC3 ������F�F�S�.89^8*~8*N8*�88�8:^8;�8+�8).zyZ�n8�8(�"��WF��#�.z˞X��Y(�K��"���V#�#���V�����/	�����"��Fs�.h8^Z8:�88n8:�8+~8;�"��Ft6���#�"3S6&R"��FW63�%4�>i�.K�>8�h8^Zh�iZ>8:8*�88�8+�8:8).zyZ�ny�N8��z>���8.{I�K��i�.8�88~89�h�iZ>8).yn�z>8�8(�8�8(8�[�^���i��8""��6��#CsS��ccR ������F�F�S�%&�6��W'2�bvV�w&��"��WF��#�%F���'6���"���V#�#R��V�����/	���"��Fs�.Y�iK�Z�nXZ^�h"��Ft6���#�"3&S6"��FW63�.Y�yn8�Y�ޙ��iK�k+�8).8�8n�h�Z�8�8(�8�8.K��i�8;�89�8:�8:8+�k[~[:8�h�nyZ^y�N�xފhh
-~8).Y�Y�>8�8(����8��z>8�8""��6��#S#Cs" ������F�F�S�.8:88~8*>8*.8:�88n8:�8+~8;�Y	�Y>h	ވ>8).�+.8("��WF��#�.Y�.i��iz�8;�[�H~[+>[�r"���V#�##"��V�����/	�;"��Fs�.h8^Z8:�88n8:�8+~8;�"��Ft6���#�"3S6&R"��FW63�.88~8+�8+�8:�i�.K�>8�8:88~8*>8*.8:�88n8:�8+~8;�iY��+.8$�yI�h�8+>8;>88n8;>88N8(NX�h8^Z8�h�X�n8ik�8).K�>{;�y�N8�Z�n8�8(�8""��6��#Csc�Ss3�� ������F�F�S�%F�R���֖�rF�vW""��WF��#�$�w&V�6Rw&�v�B"���V#�#b��V�����/	��~���"��Fs�.K��i�8;�88n8:�8:�8+�8:"��Ft6���#�"3S6Vb"��FW63�.89N8:^8;�8:�88>88N8*8;΋9�X�~�9�8.8*.8:�8*�8*N888�X��
-�8���8�8�>8).h��8�8.x��K�>K��i�{I�K��8�8�i��yn�z>8�K��X��j�8""��6��#3sSs#cC�� �ХӰ��gV�7F���&V�FW$&���6&�W6V6��F��W$�B���6��7B6��F��W"�F�7V�V�B�vWDV�V�V�D'��B�6��F��W$�B����b�6��F��W"�&WGW&㰠�6��7BF�F�R�F�7V�V�B�7&VFTV�V�V�B�vF�br���F�F�R�6�74��R�v&����6V7F����F�F�Rs��F�F�R�FW�D6��FV�B�	�9�8(.8>8�k{8�Z�n8b(	B8�8�8�8(i��{�s��6��F��W"�V�D6���B�F�F�R����6��7B6&�W6V��F�7V�V�B�7&VFTV�V�V�B�vF�br���6&�W6V��6�74��R�v&����6&�W6V�s���&���2�f�$V6��&�������6��7B6&B�F�7V�V�B�7&VFTV�V�V�B�vr���6&B�6�74��R�v&����6&Bs��6&B�&Vb��GG3���wwr������6���G�G�&����6����Fs�G�54�4�DU�Dw�fƖ�6�FS��v�gF��g63���6&B�F&vWB�u�&��s��6&B�&V��v���V�W"��&VfW'&W"s��6&B���6Ɩ6��gV�7F��ₒ��wFr�vWfV�Br�v&����6Ɩ6�r���WfV�E�6FVv�'��v���WF��F���r��&����F�F�S�&����F�F�R��&����WF��#�&����WF��"��6&�W6V����6F���6��F��W$�@�ғ��Ӱ�6&B���W$�D��� ��F�b6�73�&&����V����#�G�&����V�������F�c��F�b6�73�&&����Fr"7G��S�&&6�w&�V�C�G�&����Ft6���'Ӷ6���#�G�&����Ft6���"���r36&SRr�r6cS�S"r�&����Ft6���"���r3S6Vbr�r3cVfr�&����Ft6���"���r3S6&Rr�r33FC3��r�r6s�&fw�#�G�&����Fw���F�c��F�b6�73�&&����F�F�R#�G�&����F�F�W���F�c��F�b6�73�&&����WF��"#�G�&����WF��'��ȂG�&����V'��ȓ��F�c��F�b6�73�&&����FW62#�G�&����FW67���F�c��F�b6�73�&&��������#�����8~�h�8(�(i#��F�c���6&�W6V��V�D6���B�6&B���ғ���6��F��W"�V�D6���B�6&�W6V��Р����������B����ЦF�7V�V�B�FDWfV�DƗ7FV�W"�tD��6��FV�D��FVBr�������&V�FW$&���6&�W6Vv&����6&�W6V��7F'Br���&V�FW$&���6&�W6Vv&����6&�W6V��&W7V�Br���ғ����67&�C���&�G�����F��
+// === ECO
